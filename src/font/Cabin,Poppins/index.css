@@ -1,0 +1,15 @@
+
+@font-face {
+    font-family:'Poppins';
+    src:url("./Poppins/Poppins-Medium.ttf"),
+    url("./Poppins/Poppins-Medium.ttf") format('normal'),
+    url("./Poppins/Poppins-Bold.ttf") format('title');
+}
+
+@font-face {
+    font-family:'Cabin';
+    src:url("./Cabin/static/Cabin/Cabin-Medium.ttf"),
+    url("./Cabin/static/Cabin/Cabin-Medium.ttf") format('normal'),
+    url("./Cabin/static/Cabin/Cabin-Bold.ttf") format('title');
+    
+}

@@ -1,0 +1,96 @@
+.backbroad{
+
+  position: relative;
+width: 1512px;
+height: 898px;
+
+background: #E7EBF5 ;
+opacity: 1;
+box-shadow: 0px 4px 52px rgba(0, 0, 0, 0.1);
+}
+.backbroad .title{
+
+  /* SelfPortrait */
+
+
+  position: absolute;
+width: 209px;
+height: 54px;
+left: 126px;
+top: 65px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 54px;
+/* identical to box height */
+
+
+color: #4D59BF;
+}
+.backbroad Progressbar{
+  position: absolute;
+  width: 909;
+  height: 39;
+  top:77;
+  left: 419;
+}
+.backbroad .text5{
+  /* Make your avatar */
+
+position: absolute;
+width: 142px;
+height: 24px;
+left: 372px;
+top: 121px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+color: #595566;
+
+}
+.backbroad .text6{
+  /* Select your product */
+
+position: absolute;
+width: 158px;
+height: 24px;
+left: 807px;
+top: 121px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+color: #595566;
+
+  
+}
+.backbroad .text7{
+  /* Change the style */
+
+position: absolute;
+width: 138px;
+height: 24px;
+left: 1241px;
+top: 121px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+color: #595566;
+
+}

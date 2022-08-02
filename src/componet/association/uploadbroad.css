@@ -1,0 +1,209 @@
+.photoBroad{
+/* Rectangle 39 */
+
+position: absolute;
+width: 438px;
+height: 508px;
+left: 160px;
+top: 244px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.04);
+
+
+
+}
+#Imgload{
+    display: none;
+}
+ .reloadButton{
+/* Rectangle 59 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 159px;
+height: 58px;
+left: 200px;
+top: 667px;
+
+border: 2px solid #4D59BF;
+
+}
+.reloadButton .reloadButtonText{
+    /* reload */
+
+/* reload */
+
+position: absolute;
+width: 79px;
+height: 36px;
+left: 40px;
+top: 11px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #4D59BF;
+
+
+
+
+}
+.photoBroad #Imgload{
+    display: none;
+}
+.generateButton{/* generate */
+
+    /* Rectangle 57 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 159px;
+height: 58px;
+left: 402px;
+top: 667px;
+
+border: 2px solid #4D59BF;
+
+    
+    }
+    .generateButton .generateButtonText{
+        /* Rectangle 57 */
+
+box-sizing: border-box;
+
+/* generate */
+
+position: absolute;
+width: 111px;
+height: 36px;
+left: 24px;
+top: 11px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #4D59BF;
+
+
+
+    }
+.realPhoto{
+    position: absolute;
+    left:85px;
+    top:35px;
+}
+.AvatarPhotoName{
+    /* Upload your selfie */
+
+position: absolute;
+width: 296px;
+height: 42px;
+left: 231px;
+top: 190px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 48px;
+
+color: #595566;
+
+
+}
+
+.photoBroadEmpty{
+position: absolute;
+width: 238px;
+height: 116px;
+left: 104px;
+top:176px;
+}
+.photoBroad:hover .photoBroadEmptyC{
+    display: block;
+    }
+    .photoBroad:hover .photoBroadEmptyL{
+        display: block;
+        }
+        .photoBroad:hover svg{
+            display: none;
+            }
+.photoBroadEmptyC{
+    /* Rectangle 62 */
+    display: none;
+box-sizing: border-box;
+
+position: absolute;
+width: 238px;
+height: 58px;
+left: 0px;
+top: 0px;
+
+border: 2px solid #4D59BF;
+
+}
+.photoBroadEmptyCT{
+    /* Take photo */
+
+position: absolute;
+width: 136px;
+height: 36px;
+left: 40px;
+top: 11px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #4D59BF;
+
+
+}
+.photoBroadEmptyL{
+    /* Rectangle 61 */
+    display: none;
+box-sizing: border-box;
+
+position: absolute;
+width: 238px;
+height: 58px;
+left: 0px;
+top: 57px;
+
+border: 2px solid #4D59BF;
+
+}
+.photoBroadEmptyLT{
+    /* Choose from file */
+
+position: absolute;
+width: 198px;
+height: 36px;
+left: 21px;
+top:11px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+color: #4D59BF;
+
+
+}

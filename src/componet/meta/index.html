@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+    	<style>
+            html,body{position:relative;height:100%;}
+            .main { display: flex; flex-direction: row; justify-content:space-between;width:100%}
+            #canvas{background-color:#eee;}
+            .btnBox { display:flex;align-items:center;justify-content:center; position: absolute; bottom: 0px; left: 0px; width: 100%; height: 60px; background-color: #eee; border-top: solid 1px #ddd; }
+            #btnSave{margin-left:20px;}
+        </style>
+	</head>
+	<body>
+        <div class="main">
+            <video id="video" autoplay style="width: 640px;height: 480px"></video>
+            <!--拍照按钮-->
+            <!--描绘video截图-->
+            <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+        
+        <div class="text-center btnBox">
+            <button id="capture" class="btn btn-success"><i class="fa fa-camera"></i> 拍照</button>  
+            <button id="btnSave" class="btn btn-success"><i class="fa fa-save"></i> 使用此图片</button>
+        </div>
+  
+        <script>
+            window.onload = function () {
+                //访问用户媒体设备的兼容方法
+                function getUserMedia(constraints, success, error) {
+                    if (navigator.mediaDevices.getUserMedia) {
+                        //最新的标准API
+                        navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+                    } else if (navigator.webkitGetUserMedia) {
+                        //webkit核心浏览器
+                        navigator.webkitGetUserMedia(constraints, success, error)
+                    } else if (navigator.mozGetUserMedia) {
+                        //firfox浏览器
+                        navigator.mozGetUserMedia(constraints, success, error);
+                    } else if (navigator.getUserMedia) {
+                        //旧版API
+                        navigator.getUserMedia(constraints, success, error);
+                    }
+                }
+
+                let video = document.getElementById('video');
+                let canvas = document.getElementById('canvas');
+                let context = canvas.getContext('2d');
+                function success(stream) {
+                    //兼容webkit核心浏览器
+                    //let CompatibleURL = window.URL || window.webkitURL;
+                    //将视频流设置为video元素的源
+                    // console.log(stream);
+                    //video.src = CompatibleURL.createObjectURL(stream);
+                    video.srcObject = stream;
+                    video.play();
+                }
+                function error(error) {
+                    console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+                }
+
+                if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia) {
+                    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+                        console.log("enumerateDevices() not supported.");
+                        return;
+                    }
+                    // 列出摄像头和麦克风
+                    var exArray = [];
+                    navigator.mediaDevices.enumerateDevices()
+                        .then(function (devices) {
+                            devices.forEach(function (device) {
+                                // console.log(device.kind + ": " + device.label +
+                                // " id = " + device.deviceId);
+                                if (device.kind == "videoinput") {
+                                    // alert(device.label);
+                                    exArray.push(device.deviceId);
+                                }
+                            });
+                            var mediaOpts = { video: { width: 420, height: 120 } };
+                            var mediaOpts =
+                            {
+                                video:
+                                {
+                                    deviceId: { exact: exArray[1] }
+                                }
+                            };
+                            //调用用户媒体设备, 访问摄像头
+                            getUserMedia(mediaOpts, success, error);
+                        })
+                        .catch(function (err) {
+                            console.log(err.name + ": " + err.message);
+                        });
+
+                } else {
+                    alert('不支持访问用户媒体');
+                }
+                var img = new Image();
+                document.getElementById('capture').addEventListener('click', function () {
+                    context.drawImage(video, 0, 0, 640, 480);
+                   //var image_data = context.getImageData(0, 0, 480, 320);
+                    // var string = OCRAD(image_data.data);
+                    // string = _arrayBufferToBase64(image_data);
+                    var image = new Image();
+                    image.src = canvas.toDataURL("image/jpeg");
+                    console.log(image.src);
+                
+                })
+            }
+        </script>
+	</body>
+</html>
+<!--原文链接：https://blog.csdn.net/HELLOMRP/article/details/125049793-->
