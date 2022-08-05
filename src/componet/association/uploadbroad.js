@@ -109,7 +109,7 @@ export default class UploadBroad extends Component {
         const f1=async()=>{
             //console.log(transpeeps[0])
             var res=await axios({
-                url: "https://202.120.165.128:8848/service/avatar",
+                url: "http://202.120.165.128:8848/service/avatar",
                 method: "post",
                 data: {'file':this.state.pic,'picmode':this.state.picmode},
               })
@@ -181,7 +181,7 @@ if(this.state.pic){
                 <input type='file' id='Imgload' onChange={this.show}></input>
                 </div>
                 <div className='reloadButton' onClick={()=>{let video = document.getElementById("video");
-        if(video.srcObject){video.srcObject.getTracks()[0].stop()};this.reload()}}><div className='reloadButtonText'>reload</div></div>
+        if(video.srcObject){video.srcObject.getTracks()[0].stop()};this.reload()}}><div className='reloadButtonText'>reset</div></div>
                 <div className='generateButton' ><div className='generateButtonText'>generate</div></div>            
                 </div>
                
@@ -227,7 +227,7 @@ if(this.state.pic){
         
                 <input type='file' id='Imgload' onChange={this.show}></input>
                 </div>
-                <div className='reloadButton' onClick={this.reload}><div className='reloadButtonText'>reload</div></div>
+                <div className='reloadButton' onClick={this.reload}><div className='reloadButtonText'>reset</div></div>
                 <div className='generateButton' ><div className='generateButtonText'>generate</div></div>            
                 </div>
                
@@ -243,7 +243,7 @@ if(this.state.pic){
             <img src={src} className='realPhoto' width={294+'px'} height={378+'px'}/>
             </div>
             <input type='file' id='Imgload' onChange={this.show}></input>
-            <div className='reloadButton' onClick={this.reload}><div className='reloadButtonText'>reload</div></div>
+            <div className='reloadButton' onClick={this.reload}><div className='reloadButtonText'>reset</div></div>
             <div className='generateButton' onClick={()=>{this.generate()}} ><div className='generateButtonText'>generate</div></div>                
             </div>)
     }
