@@ -109,9 +109,9 @@ export default class UploadBroad extends Component {
         const f1=async()=>{
             //console.log(transpeeps[0])
             var res=await axios({
-                url: "http://202.120.165.128:8848/service/avatar",
+                url: "https://202.120.165.128:8848/service/avatar",
                 method: "post",
-                data: {'date':this.state.pic,'picmode':this.state.picmode},
+                data: {'file':this.state.pic,'picmode':this.state.picmode},
               })
               var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
               var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
