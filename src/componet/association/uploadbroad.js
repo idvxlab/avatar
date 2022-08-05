@@ -111,6 +111,11 @@ export default class UploadBroad extends Component {
             var res=await axios({
                 url: "http://202.120.165.128:8848/service/avatar",
                 method: "post",
+                headers: {
+                    'content-type': 'application/json',
+                    // 自动将http的不安全请求升级为https不然在github线上会报
+                    "Content-Security-Policy": "upgrade-insecure-requests"
+                },
                 data: {'file':this.state.pic,'picmode':this.state.picmode},
               })
               var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
