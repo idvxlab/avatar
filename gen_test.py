@@ -35,11 +35,11 @@ def get_filelist(dirpath,Filelist=[]):
                 get_filelist(newDir, Filelist)
     return Filelist
 
-file_face=get_filelist('./OpenPeeps/face',[])
-file_head=get_filelist('./OpenPeeps/head',[])
-file_face_hair=get_filelist('./OpenPeeps/facialhair',[])
-file_hat=get_filelist('./OpenPeeps/hat',[])
-file_accessories=get_filelist('./OpenPeeps/accessories',[])
+file_face=get_filelist('OpenPeeps/face',[])
+file_head=get_filelist('OpenPeeps/head',[])
+file_face_hair=get_filelist('OpenPeeps/facialhair',[])
+file_hat=get_filelist('OpenPeeps/hat',[])
+file_accessories=get_filelist('OpenPeeps/accessories',[])
 
 def conv3x3(in_planes, out_planes, stride=1):
     return (nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False))
@@ -232,7 +232,7 @@ def generate_image(image, number):
   MAX_STEP = 20
   env = Paint(BATCH_SIZE, MAX_STEP)
   n_actions = env.action_space
-  checkpoint = torch.load('./pretrained_models/model_1.pt')
+  checkpoint = torch.load('pretrained_models/model_1.pt')
   policy_net = ResNet(2, n_actions).to(device)
   policy_net.load_state_dict(checkpoint['model_state_dict'])
   policy_net.eval()
