@@ -100,8 +100,8 @@ color: #4D59BF;
     }
 .realPhoto{
     position: absolute;
-    left:85px;
-    top:35px;
+    left:72px;
+    top:20px;
 }
 .AvatarPhotoName{
     /* Upload your selfie */
@@ -130,18 +130,18 @@ height: 116px;
 left: 104px;
 top:176px;
 }
-.photoBroad:hover .photoBroadEmptyC{
+.photoBroad11:hover .photoBroadEmptyC{
     display: block;
     }
-    .photoBroad:hover .photoBroadEmptyL{
+    .photoBroad11:hover .photoBroadEmptyL{
         display: block;
         }
-        .photoBroad:hover svg{
+        .photoBroad11:hover svg{
             display: none;
             }
 .photoBroadEmptyC{
     /* Rectangle 62 */
-    display: none;
+
 box-sizing: border-box;
 
 position: absolute;
@@ -175,7 +175,7 @@ color: #4D59BF;
 }
 .photoBroadEmptyL{
     /* Rectangle 61 */
-    display: none;
+
 box-sizing: border-box;
 
 position: absolute;

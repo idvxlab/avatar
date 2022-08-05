@@ -176,13 +176,17 @@ color: #FFFFFF;
   height: 510px;
   left: 89px;
   top: 240px;
+ 
   }
   .scenariobarbar::-webkit-scrollbar {
     width: 9px;
     
+    
   }
   .scenariobarbar::-webkit-scrollbar-thumb {
     background-color: rgba(77,89,191,0.33);
+    
+
   }
   .stylebarbar{
     position: absolute;
@@ -191,7 +195,7 @@ color: #FFFFFF;
   width: 175px;
   height: 510px;
   left: 343px;
-  top: 240px;
+  top: 244px;
   }
   .stylebarbar::-webkit-scrollbar {
     width: 9px;
@@ -204,7 +208,7 @@ color: #FFFFFF;
     position: absolute;
     overflow:auto;
     /* Rectangle 61 */
-width: 464px;
+width: 473px;
 height: 510px;
 left: 285px;
 top: 242px;
@@ -217,6 +221,7 @@ top: 242px;
 }
 .Productsbar::-webkit-scrollbar-thumb {
   background-color: rgba(77,89,191,0.33);
+  border-radius: 9px;
 }
 
   .protraitBBar{
@@ -275,4 +280,5 @@ color: #4D59BF;
   }
   .protraitBBar::-webkit-scrollbar-thumb {
     background-color: rgba(77,89,191,0.33);
+    border-radius: 9px;
   }

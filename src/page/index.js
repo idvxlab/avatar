@@ -12,6 +12,18 @@ import BackButton1 from "../componet/meta/backbutton1";
 import ScenarioButton from "../componet/meta/scenariobutton";
 import ScenarioButton2 from "../componet/meta/scenariobutton2";
 import StyleButton from "../componet/meta/stylebutton";
+import axios from 'axios'
+/*
+axios({url: "http://http://202.120.165.128:8848/service/avatar",
+                        method: "post",
+                        data: this.state.pic,
+                        datamode:this.state.picmode
+                      }).then(res => {
+                          data1=res.data.message[0];data2=res.data.message[1];data3=res.data.message[2];data4=res.data.message[3];data5=res.data.message[4]
+                          this.setState({peeps1:data1,peeps2:data2,peeps3:data3,peeps4,data4})
+                          console.log(data1)
+
+*/
 //import Page1 from './page1'
 //src='data:image/svg+xml;base64,
 import{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4} from "./variable";
@@ -405,7 +417,7 @@ class PortraitBar extends Component{
     var t=0
     var basex=0;var basey=0;
     for(let i in Portrait){
-      if(this.state.scenario1 &&this.state.scenario2)
+      if(this.state.scenario1 )
       {barlist.push([i,Portrait[i]['pic'],t,basex,basey+t*180])}
       else{barlist.push([i,0,t,basex,basey+t*180])}
       t+=1
@@ -413,8 +425,19 @@ class PortraitBar extends Component{
     var headp=[0.23,0.04,0.6,0.6]
     var peepsp=[0.2,0.32,0.6,0.6]
     var dddiv=barlist.map((item,index)=><ScenarioButton2 key={index} headp={headp} peepsp={peepsp} head={this.state.peeps} transscenario2={this.props.transportrait} E={0} id={item[0]} l={150}x={item[3]} y={item[4]} peeps={item[1]} style={(item[0]===this.state.portrait)?1:0}></ScenarioButton2>)
-    
-    if(this.state.scenario1 && this.state.scenario2){
+    if(this.state.scenario1 && !this.state.scenario2){
+      return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
+    }}>
+      
+    </div><div  className='protraitBBar' >{dddiv}</div>
+    <svg width="288" height="209" transform='translate(882,351)' fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fillRule="evenodd" clipRule="evenodd" d="M58.8535 0.463298L0 94.7914L58.8535 131.512V209H230.854V129.221L287.077 96.7598L231.213 2.67029e-05L230.854 0.207671V0H197.595C185.79 16.3552 166.565 27 144.854 27C123.142 27 103.917 16.3552 92.1124 0H59.1426H58.8535V0.463298Z" fill="#F3F3F3"/>
+<circle cx="188.1" cy="59.4716" r="8.47157" fill="#D9D9D9"/>
+<path d="M202.136 103.424H176.177C173.789 103.424 171.845 101.492 171.994 99.109C172.755 86.9294 176.801 68.7407 188.886 68.7407C200.947 68.7407 205.324 86.8553 206.314 99.0343C206.509 101.444 204.554 103.424 202.136 103.424Z" fill="#D9D9D9"/>
+</svg>
+    </div>)
+    }
+    else if(this.state.scenario1 && this.state.scenario2){
       return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
       <div style={{position:'absolute',left:45+'px',top:50+'px'}}><img src={ProductsList[this.state.scenario1][this.state.scenario2]['pic']} alt='no way' width={350+'px'} height={350+'px'}/></div>
@@ -450,20 +473,26 @@ export default class BackBroad extends Component {
         this.refresh=this.refresh.bind(this)
     }
     refresh(){
-      this.setState({pic:this.state.pic,picmode:0,peeps1:this.state.peeps4,peeps2:this.state.peeps1,peeps3:this.state.peeps2,peeps4:this.state.peeps3})
+      this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps4,peeps3:this.state.peeps2,peeps4:this.state.peeps3})
     }
     toProgress(a){
         this.setState({progress:a,pic:this.state.pic})
     }
     transpic(pic,picmode){
-      this.setState({pic:pic,picmode:picmode,peeps1:svg1,peeps2:svg2,peeps3:svg3,peeps4:svg4})
+      if(pic && picmode){this.setState({pic:pic,picmode:picmode,
+        //peeps1:svg1,peeps2:svg2,peeps3:svg3,peeps4:svg4
+      })}
+      else{this.setState({pic:pic,picmode:picmode,peeps1:0,peeps2:0,peeps3:0,peeps4:0})}
+      
+      //alert('you lose')
       //this.props.transpeeps(this.state.peeps1,this.state.peeps2,this.state.peeps3,this.state.peeps4)
 }   
+
 transscenario1(num){
   this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:num,scenario2:0,portrait:0,style:0})
 }
 transscenario2(num){
-  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:num,portrait:0,style:0})
+  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:num,portrait:this.state.portrait,style:0})
 }
 transportrait(num){
   this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:this.state.scenario2,portrait:num,style:0})
@@ -499,7 +528,7 @@ transpeeps(peeps1,peeps2,peeps3,peeps4){
       var s1= {peeps1:b,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:a}
       this.setState(s1);}
 render(){
-  //console.log(this.state)
+  console.log(this.state)
   if(this.state.progress===1){if(!this.state.peeps1){
     return (
       <div className="backbroad" >
@@ -512,7 +541,7 @@ render(){
         <div className='text7' >Change the style</div>
         <div className='page'>
         <div>
-        <UploadBroad transpic={this.transpic} pic={this.state.pic} picmode={this.state.picmode}></UploadBroad>
+        <UploadBroad transpic={this.transpic} transpeeps={[(p1,p2,p3,p4,t)=>{t.setState({peeps1:p1,peeps2:p2,peeps3:p3,peeps4:p4})},this]} pic={this.state.pic} picmode={this.state.picmode}></UploadBroad>
         <div>
         <div style={{/* Select a scenario and product */position: 'absolute',width: '490px',height: '71px',left: '776px',top: '189px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
   }}>Check your avatar</div>
@@ -542,7 +571,7 @@ render(){
         <div className='text7' >Change the style</div>
         <div className='page'>
         <div>
-          <UploadBroad transpic={this.transpic} pic={this.state.pic} picmode={this.state.picmode}></UploadBroad>
+          <UploadBroad transpic={this.transpic} transpeeps={[(p1,p2,p3,p4,t)=>{t.setState({peeps1:p1,peeps2:p2,peeps3:p3,peeps4:p4})},this]} pic={this.state.pic} picmode={this.state.picmode}></UploadBroad>
           <div>
           <div style={{/* Select a scenario and product */position: 'absolute',width: '490px',height: '71px',left: '776px',top: '189px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
   }}>Check your avatar</div>
