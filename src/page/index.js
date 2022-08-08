@@ -13,233 +13,8 @@ import ScenarioButton from "../componet/meta/scenariobutton";
 import ScenarioButton2 from "../componet/meta/scenariobutton2";
 import StyleButton from "../componet/meta/stylebutton";
 import axios from 'axios'
-/*
-axios({url: "http://http://202.120.165.128:8848/service/avatar",
-                        method: "post",
-                        data: this.state.pic,
-                        datamode:this.state.picmode
-                      }).then(res => {
-                          data1=res.data.message[0];data2=res.data.message[1];data3=res.data.message[2];data4=res.data.message[3];data5=res.data.message[4]
-                          this.setState({peeps1:data1,peeps2:data2,peeps3:data3,peeps4,data4})
-                          console.log(data1)
+import{ProductsList,StyleBarList,PortraitBarList,url,headp,peepsp} from "./variable";
 
-*/
-//import Page1 from './page1'
-//src='data:image/svg+xml;base64,
-import{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4} from "./variable";
-//
-/*
-
-class canvasB extends Component{
-  constructor(props){
-    this.state={product:this.props.product,peeps:this.props.peeps,portrait:this.props.portrait,l:this.props.l,
-    headp:this.props.headp,portraitp:this.props.portraitp,x:this.props.x,y:this.props.y,rotate:this.props.rotate}
-  }
-  render(){return (<div></div>)}
-}*/
-
-/*
-class Scenariobar extends Component{
-  constructor(props){
-    super(props)
-    this.state={scenario1:this.props.scenario1}
-    this.scenarioTo=this.scenarioTo.bind(this)
-  }
-  scenarioTo(num){
-    this.setState({scenario1:num,scenario2:0})
-    this.props.transscenario1(num);
-  }
-  render(){
-    if (this.state.scenario1===0){
-      return(
-        <div>
-          <div style={{position:'absolute',left:89,top:240}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('study')}}>
-              <div className='senarioText'>study</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:316}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('work')}}>
-              <div className='senarioText'>work</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:392}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('sport')}}>
-              <div className='senarioText'>sport</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:472}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('travel')}}>
-              <div className='senarioText'>travel</div>
-            </div>
-          </div>
-          <div style={{ position:'absolute',left:89,top:552}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('party')}}>
-              <div className='senarioText'>party</div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    else if (this.state.scenario1==='study'){
-      return(
-        <div>
-          <div style={{position:'absolute',left:89,top:240}}>
-            <div className='onclicksenariobox' onClick={()=>{this.scenarioTo('study')}}>
-              <div className='onclicksenarioText'>study</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:316}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('work')}}>
-              <div className='senarioText'>work</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:392}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('sport')}}>
-              <div className='senarioText'>sport</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:472}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('travel')}}>
-              <div className='senarioText'>travel</div>
-            </div>
-          </div>
-          <div style={{ position:'absolute',left:89,top:552}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('party')}}>
-              <div className='senarioText'>party</div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    else if (this.state.scenario1==='work'){
-      return(
-        <div>
-          <div style={{position:'absolute',left:89,top:240}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('study')}}>
-              <div className='senarioText'>study</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:316}}>
-            <div className='onclicksenariobox' onClick={()=>{this.scenarioTo('work')}}>
-              <div className='onclicksenarioText'>work</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:392}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('sport')}}>
-              <div className='senarioText'>sport</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:472}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('travel')}}>
-              <div className='senarioText'>travel</div>
-            </div>
-          </div>
-          <div style={{ position:'absolute',left:89,top:552}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('party')}}>
-              <div className='senarioText'>party</div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    else if (this.state.scenario1==='sport'){
-      return(
-        <div>
-          <div style={{position:'absolute',left:89,top:240}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('study')}}>
-              <div className='senarioText'>study</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:316}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('work')}}>
-              <div className='senarioText'>work</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:392}}>
-            <div className='onclicksenariobox' onClick={()=>{this.scenarioTo('sport')}}>
-              <div className='onclicksenarioText'>sport</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:472}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('travel')}}>
-              <div className='senarioText'>travel</div>
-            </div>
-          </div>
-          <div style={{ position:'absolute',left:89,top:552}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('party')}}>
-              <div className='senarioText'>party</div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    else if (this.state.scenario1==='travel'){
-      return(
-        <div>
-          <div style={{position:'absolute',left:89,top:240}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('study')}}>
-              <div className='senarioText'>study</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:316}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('work')}}>
-              <div className='senarioText'>work</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:392}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('sport')}}>
-              <div className='senarioText'>sport</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:472}}>
-            <div className='onclicksenariobox' onClick={()=>{this.scenarioTo('travel')}}>
-              <div className='onclicksenarioText'>travel</div>
-            </div>
-          </div>
-          <div style={{ position:'absolute',left:89,top:552}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('party')}}>
-              <div className='senarioText'>party</div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    else if (this.state.scenario1==='party'){
-      return(
-        <div>
-          <div style={{position:'absolute',left:89,top:240}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('study')}}>
-              <div className='senarioText'>study</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:316}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('work')}}>
-              <div className='senarioText'>work</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:392}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('sport')}}>
-              <div className='senarioText'>sport</div>
-            </div>
-          </div>
-          <div style={{position:'absolute',left:89,top:472}}>
-            <div className='senariobox' onClick={()=>{this.scenarioTo('travel')}}>
-              <div className='senarioText'>travel</div>
-            </div>
-          </div>
-          <div style={{ position:'absolute',left:89,top:552}}>
-            <div className='onclicksenariobox' onClick={()=>{this.scenarioTo('party')}}>
-              <div className='onclicksenarioText'>party</div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    
-  }
-}
-*/
 class Scenariobar extends Component{
   constructor(props){
     super(props)
@@ -275,75 +50,75 @@ class Scenariobar extends Component{
 class StyleBar extends Component{
   constructor(props){
     super(props)
-    
-    this.state={peeps:this.props.peeps,scenario1:this.props.scenario1,scenario2:this.props.scenario2,portrait:this.props.portrait,style:this.props.style}
-    this.scenarioTo=this.scenarioTo.bind(this)
+    this.state={
+      peeps:this.props.peeps,
+      scenario1:this.props.scenario1,
+      scenario2:this.props.scenario2,
+      portrait:this.props.portrait,
+      style:this.props.style,
+      iscanvas:this.props.iscanvas
+    }
+  this.scenarioTo=this.scenarioTo.bind(this)
   }
   static getDerivedStateFromProps(props, state) {
-    return {peeps:props.peeps,scenario1:props.scenario1,scenario2:props.scenario2,portrait:props.portrait,style:props.style};
+    return {peeps:props.peeps,scenario1:props.scenario1,scenario2:props.scenario2,
+      portrait:props.portrait,style:props.style,iscanvas:0};
   }
   scenarioTo(num){
     this.setState({scenario1:num,scenario2:0})
-    this.props.transscenario1(num);
-  }
+    this.props.transscenario1(num);}
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
-      300
+      10
     );
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
   tick() {
-    if(this.canvasRef){
+     var tickf=(s)=> {
+      if(s.canvasRef){
+        var canvaswidth=3500
+        var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
+        //console.log('pram',stylepram)
+        var ctx=s.canvasRef.getContext('2d')
+        ctx.clearRect(0,0,canvaswidth,canvaswidth)
+        var imgObj1 = new Image();
+        //ctx.fillStyle = '#ffffff';
+        //ctx.fillRect(0, 0, canvaswidth, canvaswidth);
+        imgObj1.src=ProductsList[s.state.scenario1][s.state.scenario2]['pic']
+        ctx.drawImage(imgObj1,0, 0,canvaswidth,canvaswidth);
+        if(!ProductsList[s.state.scenario1][s.state.scenario2]['pic']){console.log('failed')}
+        //console.log('background draw')
+        for(let ii in stylepram){
+          var i=stylepram[ii]
+          var cx=i.x*canvaswidth,cy=i.y*canvaswidth,cscale=i.scale*canvaswidth
+          ctx.translate(cx,cy)
+          if(i.rotate){ctx.rotate(i.rotate)}
+          var imgObj2=new Image()
+          imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
+          ctx.drawImage(imgObj2,0+peepsp[0]*cscale,0+peepsp[1]*cscale,peepsp[2]*cscale,peepsp[3]*cscale);
+          var imgObj3=new Image()
+          imgObj3.src=s.state.peeps
+          ctx.drawImage(imgObj3,0+headp[0]*cscale,0+headp[1]*cscale,headp[2]*cscale,headp[3]*cscale);
+          if(i.rotate){ctx.rotate(-i.rotate)}
+          ctx.translate(-cx,-cy)
+        }
+        //this.setState({iscanvas:1})
+      }
 
-      var ctx=this.canvasRef.getContext('2d')
-    var imgObj = new Image();
-    imgObj.src=ProductsList[this.state.scenario1][this.state.scenario2]['pic']
-      ctx.drawImage(imgObj,0, 0,3500,3500);
-      
-      //ctx.rotate(Math.PI / 4)
-      imgObj.src=PortraitBarList[this.state.scenario1][this.state.portrait]['pic']
-      //ctx.rotate(-Math.PI / 4)
-      ctx.drawImage(imgObj,1500,1800,600,600);
-      imgObj.src=this.state.peeps
-      //ctx.rotate(-Math.PI / 4)
-      ctx.drawImage(imgObj,1530,1500,600,600);
-
-      
-      	
     }
-      
-//console.log(this.state.style)
+    tickf(this)
+    
   }
-  //componentDidMount(){
-    
-    
-    /*
-      var canvas=document.getElementById('stylebarcanvas')
-      var ctx=canvas.getContext('2d')
-      */
-  //}
-
-  /*
-  <div style={{position: 'absolute',width: '617px',height: '509px',left: '0px',top: '0px',background: '#FFFFFF',}}>
-      <div style={{position:'absolute',left:87,top:32,width:443,height:437}}>
-      <img style={{position:'absolute',left:0,top:0}}width={443} height={437} src={ProductsList[this.state.scenario1][this.state.scenario2]['pic']}/>
-      <div style={{position:'absolute',transform: 'rotate(180deg)'+'translate('+500+'px,'+sssv.y+'px'+')  scale('+sssv.scale+')'}}>
-      <img src={this.state.peeps} ></img>
-      </div>
-      
-      </div>
-      </div>
-  */
   render(){
+    //this.props.trancanvas(0)
     var barlist=[]
     var StyleList=StyleBarList[this.state.scenario1][this.state.scenario2]
     var t=0
     var basex=0;var basey=0;
     for(let i in StyleList){
-    
       barlist.push([i,StyleList[i],t,basex,basey+t*79])
       t+=1
     }
@@ -411,6 +186,7 @@ class PortraitBar extends Component{
     return {scenario1:props.scenario1,scenario2:props.scenario2,portrait:props.portrait};
   }
   render(){
+    
     var s1=this.state.scenario1
     var barlist=[]
     var Portrait=PortraitBarList[s1]
@@ -422,8 +198,7 @@ class PortraitBar extends Component{
       else{barlist.push([i,0,t,basex,basey+t*180])}
       t+=1
     }
-    var headp=[0.23,0.04,0.6,0.6]
-    var peepsp=[0.2,0.32,0.6,0.6]
+    
     var dddiv=barlist.map((item,index)=><ScenarioButton2 key={index} headp={headp} peepsp={peepsp} head={this.state.peeps} transscenario2={this.props.transportrait} E={0} id={item[0]} l={150}x={item[3]} y={item[4]} peeps={item[1]} style={(item[0]===this.state.portrait)?1:0}></ScenarioButton2>)
     if(this.state.scenario1 && !this.state.scenario2){
       return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
@@ -460,7 +235,7 @@ class PortraitBar extends Component{
 export default class BackBroad extends Component {
     constructor(props){
         super(props)
-        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:0,scenario2:0,portrait:0,style:0}
+        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:0,scenario2:0,portrait:0,style:0,iscanvas:0}
         this.toProgress = this.toProgress.bind(this);
         this.transpic=this.transpic.bind(this)
         this.transscenario1=this.transscenario1.bind(this)
@@ -471,10 +246,44 @@ export default class BackBroad extends Component {
         this.xx13=this.xx13.bind(this)
         this.xx14=this.xx14.bind(this)
         this.refresh=this.refresh.bind(this)
+        this.trancanvas=this.trancanvas.bind(this)
     }
+    refresh(){
+      var transpeeps=[(p1,p2,p3,p4,t)=>{t.setState({peeps1:p1,peeps2:p2,peeps3:p3,peeps4:p4})},this]
+      const f1=async()=>{
+          function getBase64(file) {
+              return new Promise((resolve, reject) => {
+                  const reader = new FileReader()
+                  reader.readAsDataURL(file)
+                  reader.onload = () => resolve(reader.result)
+                  reader.onerror = error => reject(error)
+              })
+          }
+           getBase64( this.state.pic ).then(async pic=> {
+              var res=await axios({
+                  url: url,
+                  method: "post",
+                  data: {'pic':pic,'num':3},
+                })
+                var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
+                var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
+                var data3='data:image/svg+xml;base64,'+String(res.data.message[2]);
+                transpeeps[0](transpeeps[1].state.peeps1,data1,data2,data3,transpeeps[1])
+              //成功你做的事情
+            }).catch(err=>{
+              console.log(err)
+            })
+          //console.log(transpeeps[0])
+         
+          //var res=await axios.post("http://202.120.165.128:8848/service/avatar",formData,{'Content-Type':'multipart/form-data','Access-Control-Allow-Origin':"*"})
+      }
+      f1()           
+  }
+    /*
     refresh(){
       this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps4,peeps3:this.state.peeps2,peeps4:this.state.peeps3})
     }
+    */
     toProgress(a){
         this.setState({progress:a,pic:this.state.pic})
     }
@@ -491,6 +300,7 @@ export default class BackBroad extends Component {
 transscenario1(num){
   this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:num,scenario2:0,portrait:0,style:0})
 }
+trancanvas(num){this.setState({iscanvas:num})}
 transscenario2(num){
   this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:num,portrait:this.state.portrait,style:0})
 }
@@ -655,7 +465,7 @@ render(){
             <div className='page'>
             <div style={{/* Select a scenario and product */position: 'absolute',width: '360px',height: '71px',left: '740px',top: '188px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
     }}>Select a style</div>
-    <StyleBar peeps={this.state.peeps1} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
+    <StyleBar peeps={this.state.peeps1} iscanvas={0} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
     <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
     <div onClick={(()=>{console.log(1);let data = document.getElementById('stylebarcanvas').toDataURL();
     const a_link = document.createElement('a');
@@ -687,7 +497,7 @@ render(){
           <div className='page'>
           <div style={{/* Select a scenario and product */position: 'absolute',width: '360px',height: '71px',left: '740px',top: '188px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
   }}>Select a style</div>
-  <StyleBar peeps={this.state.peeps1} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
+  <StyleBar  iscanvas={0} peeps={this.state.peeps1} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
           <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
           
           </div>

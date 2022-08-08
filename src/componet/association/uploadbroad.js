@@ -4,6 +4,7 @@ import './uploadbroad.css'
 import { $ } from "jquery";
 import camera from '../../img/camera2.png'
 import axios from 'axios'
+import { url } from "../../page/variable";
 class Video1 extends Component{
     constructor(props){super(props);
         this.state={pic:this.props.pic,picmode:this.props.picmode};
@@ -66,7 +67,7 @@ class Video1 extends Component{
                 <video   style={{position:'absolute',left:0,top:0}}  id="video" width="294px" height="378px" autoPlay="autoplay" onLoad={()=>{}}></video>
                 <canvas style={{ position:'absolute',left:0,top:0}} id="canvas" width="294px" height="378px"></canvas>
                       
-                <div style={{position:'absolute',left:123,top:318}} onClick={()=>{this.takePhoto();}}><svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div style={{position:'absolute',left:123,top:318}} onClick={()=>{this.takePhoto();console.log(document.getElementById("video"));if(document.getElementById("video")){document.getElementById("video").srcObject.getTracks()[0].stop()};}}><svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="23" cy="23" r="23" fill="#4D59BF"/>
 <circle cx="23" cy="23" r="17" stroke="white" strokeWidth="2"/>
 </svg>
@@ -99,37 +100,54 @@ export default class UploadBroad extends Component {
     load(){if(!this.state.pic){document.getElementById('Imgload').click()}}
     takephoto(){this.setState({takephotomode:1})}
     //reload(){if(this.state.pic){document.getElementById('Imgload').click()}}
-    reload(){this.setState({pic:0,takephotomode:0,picmode:0});this.uploadImg(0,0);}
+    reload(){this.setState({pic:0,takephotomode:0,picmode:0});this.uploadImg(0,0);
+    if(document.getElementById("video")){document.getElementById("video").srcObject.getTracks()[0].stop()}}
     generate(){
         //console.log('transpeeps\n------\n',this.props.transpeeps,this.props.transpic)
 
         var transpeeps=this.props.transpeeps
-        console.log(transpeeps)
         this.props.transpic(this.state.pic,this.state.picmode)
         const f1=async()=>{
-            //console.log(transpeeps[0])
-            var res=await axios({
-                url: "http://202.120.165.128:8848/service/avatar",
-                method: "post",
-                headers: {
-                    'content-type': 'application/json',
-                    // 自动将http的不安全请求升级为https不然在github线上会报
-                    "Content-Security-Policy": "upgrade-insecure-requests"
-                },
-                data: {'file':this.state.pic,'picmode':this.state.picmode},
+            console.log(url)
+            function getBase64(file) {
+                return new Promise((resolve, reject) => {
+                    ///FileReader类就是专门用来读文件的
+                    const reader = new FileReader()
+                    //开始读文件
+                    //readAsDataURL: dataurl它的本质就是图片的二进制数据， 进行base64加密后形成的一个字符串，
+                    reader.readAsDataURL(file)
+                    // 成功和失败返回对应的信息，reader.result一个base64，可以直接使用
+                    reader.onload = () => resolve(reader.result)
+                    // 失败返回失败的信息
+                    reader.onerror = error => reject(error)
+                })
+            }
+             getBase64( this.state.pic ).then(async pic=> {
+                //console.log('res1',res)
+                var res=await axios({
+                    url: url,
+                    method: "post",
+                    //headers: {
+                        //'Content-Type': 'application/x-www-form-urlencoded',
+                        //"Content-Security-Policy": "upgrade-insecure-requests"
+                    //},
+                    data: {'pic':pic,'num':4},
+                  })
+                  var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
+                  var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
+                  var data3='data:image/svg+xml;base64,'+String(res.data.message[2]);
+                  var data4='data:image/svg+xml;base64,'+String(res.data.message[3]);
+                  
+                  transpeeps[0](data1,data2,data3,data4,transpeeps[1])
+                //成功你做的事情
+              }).catch(err=>{
+                console.log(err)
               })
-              var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
-              var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
-              var data3='data:image/svg+xml;base64,'+String(res.data.message[2]);
-              var data4='data:image/svg+xml;base64,'+String(res.data.message[3]);
-              
-              transpeeps[0](data1,data2,data3,data4,transpeeps[1])
-
+            //console.log(transpeeps[0])
+           
+            //var res=await axios.post("http://202.120.165.128:8848/service/avatar",formData,{'Content-Type':'multipart/form-data','Access-Control-Allow-Origin':"*"})
         }
-        var ss=f1()
-        //console.log(ss)
-       
-            
+        f1()           
     }
     async takePhoto() {
         //获得Canvas对象
