@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.d079a551.css",
-    "main.js": "./static/js/main.2b3f0944.js",
+    "main.js": "./static/js/main.71bee8d0.js",
     "static/js/787.e5b7494a.chunk.js": "./static/js/787.e5b7494a.chunk.js",
     "static/media/tshirt.png": "./static/media/tshirt.2b439af3985dca564a26.png",
     "static/media/socks.png": "./static/media/socks.e3ef607d06d02daaa563.png",
@@ -10,6 +10,10 @@
     "static/media/Poppins-Bold.ttf": "./static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
     "static/media/Cabin-Medium.ttf": "./static/media/Cabin-Medium.1256de63504888a7d9dc.ttf",
     "static/media/Cabin-Bold.ttf": "./static/media/Cabin-Bold.6d8418d109bed523706d.ttf",
+    "static/media/brainstorming 2.svg": "./static/media/brainstorming 2.ba1f6eb4d9d5af54aafabf6cce8fcd25.svg",
+    "static/media/brainstorming.svg": "./static/media/brainstorming.5831901c9710814ab21f617e375c17fc.svg",
+    "static/media/waiting for lunch.svg": "./static/media/waiting for lunch.47b02436019a400827daacc2a0d44219.svg",
+    "static/media/waiting for lunch 2.svg": "./static/media/waiting for lunch 2.d47a2587021e492d83b0136fa46cbe48.svg",
     "static/media/Device.svg": "./static/media/Device.895cc3f0b2d905a0466532d9a059dbb8.svg",
     "static/media/Gaming.svg": "./static/media/Gaming.0b83d5c5c5731db745a2614ce027139b.svg",
     "static/media/Paper.svg": "./static/media/Paper.55be0977088de3094e23004e55ae5fd8.svg",
@@ -23,11 +27,11 @@
     "static/media/Gym Shirt.svg": "./static/media/Gym Shirt.47287c55726370ee25b9561e070c735f.svg",
     "index.html": "./index.html",
     "main.d079a551.css.map": "./static/css/main.d079a551.css.map",
-    "main.2b3f0944.js.map": "./static/js/main.2b3f0944.js.map",
+    "main.71bee8d0.js.map": "./static/js/main.71bee8d0.js.map",
     "787.e5b7494a.chunk.js.map": "./static/js/787.e5b7494a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d079a551.css",
-    "static/js/main.2b3f0944.js"
+    "static/js/main.71bee8d0.js"
   ]
 }
