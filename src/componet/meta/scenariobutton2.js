@@ -21,22 +21,28 @@ render(){
             return(
 <div onClick={()=>{this.props.transscenario2(this.props.id)}}><div style={{border: '3px solid #4D59BF',/* Rectangle 41 */
         position: 'absolute',width: this.state.l-6+'px',height:this.state.l-6+'px',left: this.state.x+'px',top: this.state.y+'px',background:'#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',}}>
-            <div style={{position:'absolute',left:this.state.l*this.state.peepsp[0]-3,top:this.state.l*this.state.peepsp[1]-3}}>
-                
-                <img style={{position:'absolute',left:-3,top:-3}} src={this.state.peeps}  width={this.state.l*this.state.peepsp[2]} height={this.state.l*this.state.peepsp[3]}/></div>
             <div style={{position:'absolute',left:this.state.l*this.state.headp[0]-3,top:this.state.l*this.state.headp[1]-3}}>
                 
-                <img style={{position:'absolute',left:-3,top:-3}} src={this.state.head}  width={this.state.l*this.state.headp[2]} height={this.state.l*this.state.headp[3]}/></div>
+                <img style={{position:'absolute',left:-3,top:-3}} src={this.state.head}  width={this.state.l*this.state.headp[2]} height={this.state.l*this.state.headp[3]}/>
+            </div>
+            
+            <div style={{position:'absolute',left:this.state.l*this.state.peepsp[0]-3,top:this.state.l*this.state.peepsp[1]-3}}>
+                
+                <img style={{position:'absolute',left:-3,top:-3}} src={this.state.peeps}  width={this.state.l*this.state.peepsp[2]} height={this.state.l*this.state.peepsp[3]}/>
+            </div>
+            
             </div></div>)
         }
         return(<div onClick={()=>{this.props.transscenario2(this.props.id)}}><div style={{/* Rectangle 41 */
         position: 'absolute',width: this.state.l+'px',height:this.state.l+'px',left: this.state.x+'px',top: this.state.y+'px',background:'#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',}}>
-            <div style={{position:'absolute',left:this.state.l*this.state.peepsp[0]-3,top:this.state.l*this.state.peepsp[1]-3}}>
-                
-                <img src={this.state.peeps}  width={this.state.l*this.state.peepsp[2]} height={this.state.l*this.state.peepsp[3]}/></div>
             <div style={{position:'absolute',left:this.state.l*this.state.headp[0]-3,top:this.state.l*this.state.headp[1]-3}}>
-                
-                <img src={this.state.head}  width={this.state.l*this.state.headp[2]} height={this.state.l*this.state.headp[3]}/></div>
+                <img src={this.state.head}  width={this.state.l*this.state.headp[2]} height={this.state.l*this.state.headp[3]}/>
+            </div>
+            
+            <div style={{position:'absolute',left:this.state.l*this.state.peepsp[0]-3,top:this.state.l*this.state.peepsp[1]-3}}>    
+                <img src={this.state.peeps}  width={this.state.l*this.state.peepsp[2]} height={this.state.l*this.state.peepsp[3]}/>
+            </div>
+
             </div></div>)
         
 }

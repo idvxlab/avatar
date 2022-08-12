@@ -9,28 +9,45 @@ import gymShirt from '../img/portrait/Gym Shirt.svg'
 import dress from '../img/portrait/Dress.svg'
 import paper from '../img/portrait/Paper.svg'
 import sportyTee from '../img/portrait/Sporty Tee.svg'
-import brainstorm from '../img/products/work/brainstorming.svg'
-import brainstorm2 from '../img/products/work/brainstorming 2.svg'
-import waitingforlunch from '../img/products/work/waiting for lunch.svg'
-import waitingforlunch2 from '../img/products/work/waiting for lunch 2.svg'
-import cup from "../img/products/sports/cup.png";
+import brainWave from '../img/portrait/study/2-brain wave.svg'
+import feelingSleepy from '../img/portrait/study/2-feeling sleepy.svg'
+import fullMark from '../img/portrait/study/2-full mark.svg'
+import reading from '../img/portrait/study/2-reading.svg'
+import zoningOut from '../img/portrait/study/2-zoning out.svg'
+import brainstorming from '../img/portrait/work/1-brainstorming.svg'
+import doPre from '../img/portrait/work/1-doing presentation.svg'
+import slackingOff from '../img/portrait/work/1-slacking off.svg'
+import waitingForLunch from '../img/portrait/work/1-waiting for lunch.svg'
+import workingOvertime from '../img/portrait/work/1-working overtime.svg'
+
+import cup from '../img/products/work/cup.png'
+import folder from '../img/products/work/folder.png'
+import foodContainer from '../img/products/work/food container.png'
+import laptop from '../img/products/work/laptop.png'
+import notebook from '../img/products/work/notebook.png'
+import usb from '../img/products/work/usb.png'
+
+//import cup from "../img/products/sports/cup.png";
 import socks from "../img/products/sports/socks.png";
 import tshirt from "../img/products/sports/tshirt.png";
 //var url='http://202.120.165.128:5000/service/avatar'
-var url='http://172.16.229.198:5000/service/avatar'
-var headp=[0.237,0.027,0.6,0.6]
-var peepsp=[0.2,0.38,0.6,0.6]
+var url='http://localhost:5000/service/avatar'
+var headp=[0.233,0.038,0.58,.58]
+var peepsp=[.05,0.02,1,1]
 var ProductsList={
-'study':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
-'work':{'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks},'cup':{'pic':cup},'socks':{'pic':socks}},
+    'work':{'cup':{'pic':cup},'folder':{'pic':folder},'foodContainer':{'pic':foodContainer},
+    'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb}},
+'study':{'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks},'cup':{'pic':cup},'socks':{'pic':socks}},
 'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'party':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'party1':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-var PortraitBarList={'study':{'peep1':{'pic':device},'peep2':{'pic':gaming},'peep3':{'pic':explaining},'peep4':{'pic':gymShirt}},
-'work':{'peep1':{'pic':brainstorm},'peep2':{'pic':brainstorm2},'peep3':{'pic':waitingforlunch},'peep4':{'pic':waitingforlunch2}},
+var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pic':feelingSleepy},'fullMark':{'pic':fullMark},
+'reading':{'pic':reading},'zoningOut':{'pic':zoningOut}},
+'work':{'brainstorming':{'pic':brainstorming},'doingPresentation':{'pic':doPre},
+'slackingOff':{'pic':slackingOff},'waitingForLunch':{'pic':waitingForLunch},'workingOverTime':{'pic':workingOvertime}},
 'sport':{'peep1':{'pic':dress},'peep2':{'pic':gaming},'peep3':{'pic':explaining},'peep4':{'pic':gymShirt}},
 'travel':{'peep1':{'pic':device},'peep2':{'pic':dress},'peep3':{'pic':paper},'peep4':{'pic':gymShirt}},
 'party':{'peep1':{'pic':paper},'peep2':{'pic':sportyTee},},
@@ -42,12 +59,12 @@ var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,scale:0.3}],'style2':[{
           'tshirt':{'style1':[{x:0.1,y:0.1,scale:1}]},
           'tshirt2':{'style1':[{x:0.1,y:0.1,scale:1}]},
           'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]}},
-'work':{'cup':{'style1':[{x:0.1,y:0.1,scale:0.3}],'style2':[{x:0.5,y:0.5,scale:0.3}]},
-            'socks':{'style1':[{x:0.2,y:0.18,scale:.25,rotate:Math.PI/4},{x:0.5,y:0.18,scale:.25}],'style2':[{x:0.4,y:0.18,scale:.25,rotate:Math.PI/4},{x:0.8,y:0.18,scale:.25}]},
-            'cup2':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'tshirt':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'tshirt2':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]}},
+'work':{'cup':{'style1':[{x:0.1,y:0.1,scale:0.4}],'style2':[{x:0.3,y:0.3,scale:0.3}]},
+          'folder':{'style1':[{x:0.3,y:0.25,scale:0.3}]},
+          'foodContainer':{'style1':[{x:0.4,y:0.3,scale:0.3,rotate:Math.PI/8}]},
+          'laptop':{'style1':[{x:0.35,y:0.35,scale:0.4,rotate:-Math.PI/8}]},
+          'notebook':{'style1':[{x:0.25,y:0.45,scale:0.15}]},
+          'usb':{'style1':[{x:0.4,y:0.45,scale:0.1,rotate:Math.PI/5}]}},
 'sport':{'cup':{'style1':[{x:0.1,y:0.1,scale:1}]},
             'socks':{'style1':[{x:0.1,y:0.1,scale:1}]},
             'cup2':{'style1':[{x:0.1,y:0.1,scale:1}]},

@@ -79,11 +79,13 @@ class StyleBar extends Component{
   tick() {
      var tickf=(s)=> {
       if(s.canvasRef){
-        var canvaswidth=3500
+        
+        var canvaswidth=6500
         var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
         //console.log('pram',stylepram)
         var ctx=s.canvasRef.getContext('2d')
         ctx.clearRect(0,0,canvaswidth,canvaswidth)
+        ctx.translate(0.5,0.5)
         var imgObj1 = new Image();
         //ctx.fillStyle = '#ffffff';
         //ctx.fillRect(0, 0, canvaswidth, canvaswidth);
@@ -96,16 +98,19 @@ class StyleBar extends Component{
           var cx=i.x*canvaswidth,cy=i.y*canvaswidth,cscale=i.scale*canvaswidth
           ctx.translate(cx,cy)
           if(i.rotate){ctx.rotate(i.rotate)}
-          var imgObj2=new Image()
-          imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
-          ctx.drawImage(imgObj2,0+peepsp[0]*cscale,0+peepsp[1]*cscale,peepsp[2]*cscale,peepsp[3]*cscale);
+         
           var imgObj3=new Image()
           imgObj3.src=s.state.peeps
           ctx.drawImage(imgObj3,0+headp[0]*cscale,0+headp[1]*cscale,headp[2]*cscale,headp[3]*cscale);
+          var imgObj2=new Image()
+          imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
+          ctx.drawImage(imgObj2,0+peepsp[0]*cscale,0+peepsp[1]*cscale,peepsp[2]*cscale,peepsp[3]*cscale);
           if(i.rotate){ctx.rotate(-i.rotate)}
           ctx.translate(-cx,-cy)
+          
         }
         //this.setState({iscanvas:1})
+        ctx.translate(-0.5,-0.5)
       }
 
     }
@@ -131,7 +136,7 @@ class StyleBar extends Component{
         <div style={{position:"absolute",width:617,height:509,left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
 
 
-        <canvas id='stylebarcanvas' width={3500} height={3500} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
+        <canvas id='stylebarcanvas' width={6500} height={6500} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef = ref;}}>
       
      </canvas>
@@ -368,6 +373,7 @@ render(){
     </div>
         </div>
     </div>
+    
       </div>)
   }else{
     return (

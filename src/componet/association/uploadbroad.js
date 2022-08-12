@@ -104,21 +104,28 @@ export default class UploadBroad extends Component {
     if(document.getElementById("video")){document.getElementById("video").srcObject.getTracks()[0].stop()}}
     generate(){
         //console.log('transpeeps\n------\n',this.props.transpeeps,this.props.transpic)
+        /*
+                var waiting=document.createElement('div')
+        waiting.id='waitingpage'
+        waiting.style.left=0;waiting.style.top=0;
+        waiting.style.height=898;waiting.style.width=1512;waiting.style.position='absolute';waiting.style.opacity=0.5;waiting.style.background='white';
+        var computingButton=document.createElement('div')
+        computingButton.style.left=700;computingButton.style.top=400;computingButton.style.position='absolute';computingButton.style.fontFamily='Poppins';computingButton.style.fontStyle='normal';computingButton.style.color='#4D59BF';
+        computingButton.style.fontSize=88;computingButton.style.fontWeight=54;
+        computingButton.innerText='COMPUTING'
+        waiting.appendChild(computingButton)
+        document.getElementsByClassName('backbroad')[0].appendChild(waiting)
+        */
 
         var transpeeps=this.props.transpeeps
         this.props.transpic(this.state.pic,this.state.picmode)
         const f1=async()=>{
-            console.log(url)
+            //console.log(url)
             function getBase64(file) {
                 return new Promise((resolve, reject) => {
-                    ///FileReader类就是专门用来读文件的
                     const reader = new FileReader()
-                    //开始读文件
-                    //readAsDataURL: dataurl它的本质就是图片的二进制数据， 进行base64加密后形成的一个字符串，
                     reader.readAsDataURL(file)
-                    // 成功和失败返回对应的信息，reader.result一个base64，可以直接使用
                     reader.onload = () => resolve(reader.result)
-                    // 失败返回失败的信息
                     reader.onerror = error => reject(error)
                 })
             }
@@ -139,6 +146,10 @@ export default class UploadBroad extends Component {
                   var data4='data:image/svg+xml;base64,'+String(res.data.message[3]);
                   
                   transpeeps[0](data1,data2,data3,data4,transpeeps[1])
+                  /*
+                  var waiting=document.getElementById('waitingpage')
+                  document.getElementsByClassName('backbroad')[0].removeChild(waiting)
+                  */
                 //成功你做的事情
               }).catch(err=>{
                 console.log(err)
