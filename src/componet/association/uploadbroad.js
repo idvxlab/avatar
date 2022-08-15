@@ -34,6 +34,7 @@ class Video1 extends Component{
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0, 294, 378);
+        ctx.scale(-2, 1);
         var image = new Image();
         
         image.src = canvas.toDataURL("image/jpeg");
@@ -64,7 +65,7 @@ class Video1 extends Component{
 
             <div id="videoDiv">   
                 
-                <video   style={{position:'absolute',left:0,top:0}}  id="video" width="294px" height="378px" autoPlay="autoplay" onLoad={()=>{}}></video>
+                <video   style={{position:'absolute',left:0,top:0,transform:'scaleX(-1)'}}  id="video" width="294px" height="378px" autoPlay="autoplay" onLoad={()=>{}}></video>
                 <canvas style={{ position:'absolute',left:0,top:0}} id="canvas" width="294px" height="378px"></canvas>
                       
                 <div style={{position:'absolute',left:123,top:318}} onClick={()=>{this.takePhoto();console.log(document.getElementById("video"));if(document.getElementById("video")){document.getElementById("video").srcObject.getTracks()[0].stop()};}}><svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -103,20 +104,6 @@ export default class UploadBroad extends Component {
     reload(){this.setState({pic:0,takephotomode:0,picmode:0});this.uploadImg(0,0);
     if(document.getElementById("video")){document.getElementById("video").srcObject.getTracks()[0].stop()}}
     generate(){
-        //console.log('transpeeps\n------\n',this.props.transpeeps,this.props.transpic)
-        /*
-                var waiting=document.createElement('div')
-        waiting.id='waitingpage'
-        waiting.style.left=0;waiting.style.top=0;
-        waiting.style.height=898;waiting.style.width=1512;waiting.style.position='absolute';waiting.style.opacity=0.5;waiting.style.background='white';
-        var computingButton=document.createElement('div')
-        computingButton.style.left=700;computingButton.style.top=400;computingButton.style.position='absolute';computingButton.style.fontFamily='Poppins';computingButton.style.fontStyle='normal';computingButton.style.color='#4D59BF';
-        computingButton.style.fontSize=88;computingButton.style.fontWeight=54;
-        computingButton.innerText='COMPUTING'
-        waiting.appendChild(computingButton)
-        document.getElementsByClassName('backbroad')[0].appendChild(waiting)
-        */
-
         var transpeeps=this.props.transpeeps
         this.props.transpic(this.state.pic,this.state.picmode)
         const f1=async()=>{
@@ -216,7 +203,7 @@ if(this.state.pic){
                 </div>
                 <div className='reloadButton' onClick={()=>{let video = document.getElementById("video");
         if(video.srcObject){video.srcObject.getTracks()[0].stop()};this.reload()}}><div className='reloadButtonText'>reset</div></div>
-                <div className='generateButton' ><div className='generateButtonText'>generate</div></div>            
+                <div className='generateButton'><div className='generateButtonText'>generate</div></div>            
                 </div>
                
             )

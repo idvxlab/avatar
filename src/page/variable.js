@@ -32,7 +32,7 @@ import socks from "../img/products/sports/socks.png";
 import tshirt from "../img/products/sports/tshirt.png";
 //var url='http://202.120.165.128:5000/service/avatar'
 var versionn='1'
-var url='https://202.120.165.126:8010/service_avatar/avatar'
+var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.233,0.038,0.58,.58]
 var peepsp=[.05,0.02,1,1]
 var ProductsList={
