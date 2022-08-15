@@ -31,7 +31,8 @@ import usb from '../img/products/work/usb.png'
 import socks from "../img/products/sports/socks.png";
 import tshirt from "../img/products/sports/tshirt.png";
 //var url='http://202.120.165.128:5000/service/avatar'
-var url='http://172.23.96.1:80/service_avatar/avatar'
+var versionn='1'
+var url='https://202.120.165.126:8010/service_avatar/avatar'
 var headp=[0.233,0.038,0.58,.58]
 var peepsp=[.05,0.02,1,1]
 var ProductsList={
@@ -85,4 +86,4 @@ var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,scale:0.3}],'style2':[{
             'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-export{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp}
+export{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn}

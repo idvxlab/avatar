@@ -12,6 +12,7 @@ import BackButton1 from "../componet/meta/backbutton1";
 import ScenarioButton from "../componet/meta/scenariobutton";
 import ScenarioButton2 from "../componet/meta/scenariobutton2";
 import StyleButton from "../componet/meta/stylebutton";
+import Loading from "../componet/meta/loading";
 import axios from 'axios'
 import{ProductsList,StyleBarList,PortraitBarList,url,headp,peepsp} from "./variable";
 
@@ -284,11 +285,6 @@ export default class BackBroad extends Component {
       }
       f1()           
   }
-    /*
-    refresh(){
-      this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps4,peeps3:this.state.peeps2,peeps4:this.state.peeps3})
-    }
-    */
     toProgress(a){
         this.setState({progress:a,pic:this.state.pic})
     }
@@ -328,7 +324,6 @@ transpeeps(peeps1,peeps2,peeps3,peeps4){
       clearInterval(this.timerID);
     }
     tick() {
-//console.log(this.state.style)
     }
     xx12(){var a=this.state.peeps1;
       var b=this.state.peeps2;
@@ -347,6 +342,7 @@ render(){
   if(this.state.progress===1){if(!this.state.peeps1){
     return (
       <div className="backbroad" >
+        
         <div className='title'>selfPortrait</div>
         <div className='progressbar'>
         <ProgressBar progress={this.state.progress} x={419} y={77}/>
