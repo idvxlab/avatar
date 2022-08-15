@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/avatar/static/css/main.897ce6ef.css",
-    "main.js": "/avatar/static/js/main.841f1e97.js",
+    "main.css": "/avatar/static/css/main.ab244a53.css",
+    "main.js": "/avatar/static/js/main.d39973bb.js",
     "static/js/787.e5b7494a.chunk.js": "/avatar/static/js/787.e5b7494a.chunk.js",
     "static/media/notebook.png": "/avatar/static/media/notebook.34842596739c02174939.png",
     "static/media/laptop.png": "/avatar/static/media/laptop.b066a05290a599b8072a.png",
@@ -37,12 +37,12 @@
     "static/media/Dress.svg": "/avatar/static/media/Dress.ab7c441d8307ab7327cc8b8796752af2.svg",
     "static/media/Gym Shirt.svg": "/avatar/static/media/Gym Shirt.47287c55726370ee25b9561e070c735f.svg",
     "index.html": "/avatar/index.html",
-    "main.897ce6ef.css.map": "/avatar/static/css/main.897ce6ef.css.map",
-    "main.841f1e97.js.map": "/avatar/static/js/main.841f1e97.js.map",
+    "main.ab244a53.css.map": "/avatar/static/css/main.ab244a53.css.map",
+    "main.d39973bb.js.map": "/avatar/static/js/main.d39973bb.js.map",
     "787.e5b7494a.chunk.js.map": "/avatar/static/js/787.e5b7494a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.897ce6ef.css",
-    "static/js/main.841f1e97.js"
+    "static/css/main.ab244a53.css",
+    "static/js/main.d39973bb.js"
   ]
 }
