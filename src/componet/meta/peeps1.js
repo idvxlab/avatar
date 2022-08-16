@@ -30,7 +30,7 @@ render(){
     return (<div>
         <div style={{position: 'absolute',width: '498px',height: '509px',left: '654px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'
 }}></div>
-<div style={{position:'absolute',top:295,left:721}}><img src={this.state.peeps} width={400} height={400}/></div>
+<div style={{position:'absolute',top:320,left:756}}><img src={this.state.peeps} width={300} height={300}/></div>
 
     <div onClick={this.download} style={{/* Rectangle 60 */boxSizing: 'border-box',position: 'absolute',width: '263px',height: '58px',left: '781px',top: '667px',border: '2px solid #4D59BF',
 }}><div style={{/* download svg */

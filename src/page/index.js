@@ -342,7 +342,7 @@ transpeeps(peeps1,peeps2,peeps3,peeps4){
       var s1= {peeps1:b,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:a}
       this.setState(s1);}
 render(){
-  console.log(this.state)
+  //console.log(this.state)
   if(this.state.progress===1){if(!this.state.peeps1){
     return (
       <div>
