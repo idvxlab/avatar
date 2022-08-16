@@ -81,7 +81,7 @@ class StyleBar extends Component{
      var tickf=(s)=> {
       if(s.canvasRef){
         
-        var canvaswidth=6500
+        var canvaswidth=1018
         var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
         //console.log('pram',stylepram)
         var ctx=s.canvasRef.getContext('2d')
@@ -137,7 +137,7 @@ class StyleBar extends Component{
         <div style={{position:"absolute",width:617,height:509,left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
 
 
-        <canvas id='stylebarcanvas' width={6500} height={6500} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
+        <canvas id='stylebarcanvas' width={1018} height={1018} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef = ref;}}>
       
      </canvas>
