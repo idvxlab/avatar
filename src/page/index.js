@@ -256,6 +256,7 @@ export default class BackBroad extends Component {
     }
     refresh(){
       var transpeeps=[(p1,p2,p3,p4,t)=>{t.setState({peeps1:p1,peeps2:p2,peeps3:p3,peeps4:p4})},this]
+      document.getElementsByClassName('loading')[0].style.display='block'
       const f1=async()=>{
           function getBase64(file) {
               return new Promise((resolve, reject) => {
@@ -275,15 +276,18 @@ export default class BackBroad extends Component {
                 var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
                 var data3='data:image/svg+xml;base64,'+String(res.data.message[2]);
                 transpeeps[0](transpeeps[1].state.peeps1,data1,data2,data3,transpeeps[1])
+                document.getElementsByClassName('loading')[0].style.display='none'  
               //成功你做的事情
             }).catch(err=>{
               console.log(err)
+              document.getElementsByClassName('loading')[0].style.display='none'  
             })
           //console.log(transpeeps[0])
          
           //var res=await axios.post("http://202.120.165.128:8848/service/avatar",formData,{'Content-Type':'multipart/form-data','Access-Control-Allow-Origin':"*"})
       }
-      f1()           
+      f1()       
+        
   }
     toProgress(a){
         this.setState({progress:a,pic:this.state.pic})
@@ -341,6 +345,7 @@ render(){
   console.log(this.state)
   if(this.state.progress===1){if(!this.state.peeps1){
     return (
+      <div>
       <div className="backbroad" >
         
         <div className='title'>selfPortrait</div>
@@ -370,9 +375,11 @@ render(){
         </div>
     </div>
     
-      </div>)
+      </div>
+      <Loading x={0} y={0} ></Loading></div>)
   }else{
     return (
+      <div>
       <div className="backbroad" >
         <div className='title'>selfPortrait</div>
         <div className='progressbar'>
@@ -401,13 +408,14 @@ render(){
 </svg>
 
         <div onClick={(()=>{this.toProgress(2)})}><div className='nextButton1Text'>Next</div><NextButton1></NextButton1></div>
-      </div>)
+      </div>
+      <Loading x={0} y={0} ></Loading></div>)
   } 
   }
   else if(this.state.progress===2){
     if(this.state.portrait && this.state.scenario1 && this.state.scenario2){
       return (
-        <div className="backbroad" >
+        <div><div className="backbroad" >
           <div className='title'>selfPortrait</div>
           <div className='progressbar'>
           <ProgressBar progress={this.state.progress} x={419} y={77}/>
@@ -429,10 +437,10 @@ render(){
           <div onClick={(()=>{this.toProgress(1)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
           <div onClick={(()=>{this.toProgress(3)})}><div className='NextButton2Text'>Next</div><NextButton2></NextButton2></div>
         
-        </div>)
+        </div></div>)
     }
     return (
-      <div className="backbroad" >
+      <div><div className="backbroad" >
         <div className='title'>selfPortrait</div>
         <div className='progressbar'>
         <ProgressBar progress={this.state.progress} x={419} y={77}/>
@@ -452,10 +460,10 @@ render(){
           <PortraitBar peeps={this.state.peeps1} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2} transportrait={this.transportrait}> </PortraitBar>
         </div>
         <div onClick={(()=>{this.toProgress(1)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
-      </div>)}
+      </div></div>)}
     else if(this.state.progress===3){
       if(this.state.style){
-        return (
+        return (<div>
           <div className="backbroad" >
             <div className='title'>selfPortrait</div>
             <div className='progressbar'>
@@ -485,9 +493,9 @@ render(){
     })}><div className='exportButtonText'>Export</div><NextButton2></NextButton2></div>
             
             </div>
-          </div>)
+          </div></div>)
       }
-      return (
+      return (<div>
         <div className="backbroad" >
           <div className='title'>selfPortrait</div>
           <div className='progressbar'>
@@ -503,7 +511,7 @@ render(){
           <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
           
           </div>
-        </div>)
+        </div></div>)
     }
   }
 

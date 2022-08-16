@@ -34,7 +34,6 @@ class Video1 extends Component{
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0, 294, 378);
-        ctx.scale(-2, 1);
         var image = new Image();
         
         image.src = canvas.toDataURL("image/jpeg");
@@ -106,6 +105,7 @@ export default class UploadBroad extends Component {
     generate(){
         var transpeeps=this.props.transpeeps
         this.props.transpic(this.state.pic,this.state.picmode)
+        document.getElementsByClassName('loading')[0].style.display='block'
         const f1=async()=>{
             //console.log(url)
             function getBase64(file) {
@@ -138,14 +138,17 @@ export default class UploadBroad extends Component {
                   document.getElementsByClassName('backbroad')[0].removeChild(waiting)
                   */
                 //成功你做的事情
+                document.getElementsByClassName('loading')[0].style.display='none' 
               }).catch(err=>{
                 console.log(err)
+                document.getElementsByClassName('loading')[0].style.display='none' 
               })
             //console.log(transpeeps[0])
            
             //var res=await axios.post("http://202.120.165.128:8848/service/avatar",formData,{'Content-Type':'multipart/form-data','Access-Control-Allow-Origin':"*"})
         }
-        f1()           
+        f1() 
+                 
     }
     async takePhoto() {
         //获得Canvas对象

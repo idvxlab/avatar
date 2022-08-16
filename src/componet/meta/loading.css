@@ -1,73 +1,58 @@
 
-
+.loadingpage{
+        position: absolute;
+      width: 1512px;
+      height: 898px;
+      
+      background: #FFFFFF ;
+      opacity: 0.7;
+      box-shadow: 0px 4px 52px rgba(0, 0, 0, 0.1);
+      
+}
 p {
   color: #4D59BF;
   font-family: 'Poppins';
   font-style: normal;
+  font-size: 30px;
 }
 
-.box .r1{
-    background-color: #4D59BF;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-    animation: stretchdelay 1.2s infinite ease-in-out;
+.box {
     position: absolute;
-    left:0;
-    top:0;
+    left:713px;
+    top:329px;
+    width: 170px;
+    height: 180px;
 }
-.box .r2 {
+
+.box>div {
+    margin: 6px;
     background-color: #4D59BF;
     height: 100%;
-    width: 6px;
+    width: 16px;
     display: inline-block;
+    opacity: 1;
     -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
     animation: stretchdelay 1.2s infinite ease-in-out;
-    position: absolute;
-    left:10;
+}
+
+.box .r2 {
     -webkit-animation-delay: -1.1s;
     animation-delay: -1.1s;
 }
 
 .box .r3 {
-    background-color: #4D59BF;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-    animation: stretchdelay 1.2s infinite ease-in-out;
-    position: absolute;
-    left:30;
     -webkit-animation-delay: -1.0s;
     animation-delay: -1.0s;
 }
 
 .box .r4 {
-    background-color: #4D59BF;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-    animation: stretchdelay 1.2s infinite ease-in-out;
-    position: absolute;
-    left:40;
     -webkit-animation-delay: -0.9s;
     animation-delay: -0.9s;
 }
 
 .box .r5 {
-    background-color: #4D59BF;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-    animation: stretchdelay 1.2s infinite ease-in-out;
-    position: absolute;
-    left:50;
     -webkit-animation-delay: -0.8s;
     animation-delay: -0.8s;
-    
 }
 
 @-webkit-keyframes stretchdelay {
