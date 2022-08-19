@@ -14,7 +14,8 @@ import ScenarioButton2 from "../componet/meta/scenariobutton2";
 import StyleButton from "../componet/meta/stylebutton";
 import Loading from "../componet/meta/loading";
 import axios from 'axios'
-import{ProductsList,StyleBarList,PortraitBarList,url,headp,peepsp} from "./variable";
+import{ProductsList,StyleBarList,PortraitBarList,url,headp,peepsp,canvasW,svg1,svg2,svg3,svg4} from "./variable";
+
 
 class Scenariobar extends Component{
   constructor(props){
@@ -80,38 +81,56 @@ class StyleBar extends Component{
   tick() {
      var tickf=(s)=> {
       if(s.canvasRef){
-        
-        var canvaswidth=1018
+        var canvaswidth=canvasW
         var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
         //console.log('pram',stylepram)
         var ctx=s.canvasRef.getContext('2d')
         ctx.clearRect(0,0,canvaswidth,canvaswidth)
-        ctx.translate(0.5,0.5)
         var imgObj1 = new Image();
-        //ctx.fillStyle = '#ffffff';
-        //ctx.fillRect(0, 0, canvaswidth, canvaswidth);
         imgObj1.src=ProductsList[s.state.scenario1][s.state.scenario2]['pic']
         ctx.drawImage(imgObj1,0, 0,canvaswidth,canvaswidth);
         if(!ProductsList[s.state.scenario1][s.state.scenario2]['pic']){console.log('failed')}
-        //console.log('background draw')
+        var p = Math.PI / 180;
         for(let ii in stylepram){
           var i=stylepram[ii]
-          var cx=i.x*canvaswidth,cy=i.y*canvaswidth,cscale=i.scale*canvaswidth
-          ctx.translate(cx,cy)
-          if(i.rotate){ctx.rotate(i.rotate)}
-         
+          var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0}
+          //ctx.rotate(parmi.degree)
+          ctx.transform(parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy,parmi.e,parmi.f)
+          ctx.rotate(parmi.degree)
           var imgObj3=new Image()
           imgObj3.src=s.state.peeps
-          ctx.drawImage(imgObj3,0+headp[0]*cscale,0+headp[1]*cscale,headp[2]*cscale,headp[3]*cscale);
+          ctx.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
           var imgObj2=new Image()
           imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
-          ctx.drawImage(imgObj2,0+peepsp[0]*cscale,0+peepsp[1]*cscale,peepsp[2]*cscale,peepsp[3]*cscale);
-          if(i.rotate){ctx.rotate(-i.rotate)}
-          ctx.translate(-cx,-cy)
+          ctx.drawImage(imgObj2,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);
+          ctx.setTransform()
+          //console.log(parm_i)
+
           
         }
-        //this.setState({iscanvas:1})
-        ctx.translate(-0.5,-0.5)
+        
+        /*
+        var parm_i={tx:i.x?i.x*canvaswidth:0,ty:i.y?i.y*canvaswidth:0,t:i.t?i.t:0,degree:i.degree?i.degree:0,sx:i.sx?i.sx:1,sy:i.sy?i.sy:1}
+          var args_i = [
+            parm_i.sx * Math.cos(p * parm_i.degree),
+            parm_i.sx * Math.sin(p * parm_i.degree),
+            parm_i.t * parm_i.sx * Math.cos(p * parm_i.degree) - parm_i.sy * Math.sin(p * parm_i.degree),
+            parm_i.t * parm_i.sx * Math.sin(p * parm_i.degree) + parm_i.sy * Math.cos(p * parm_i.degree),
+            parm_i.tx,
+            parm_i.ty];
+          var a=args_i[0],b=args_i[1],c=args_i[2],d=args_i[3],e=args_i[4],f=args_i[5]
+          var angle = Math.atan2(b, a);
+          var denom = Math.pow(a, 2) + Math.pow(b, 2);
+          var scaleX = Math.sqrt(denom);
+          var scaleY = (a * d - c * b) / scaleX;
+          var skewX = Math.atan2(a * c + b * d, denom);
+          var skewY = 0;
+          var translateX = e;
+          var translateY = f;
+          ctx.translate(translateX, translateY);
+          ctx.rotate(angle);
+          ctx.scale(scaleX, scaleY);
+        */
       }
 
     }
@@ -137,7 +156,7 @@ class StyleBar extends Component{
         <div style={{position:"absolute",width:617,height:509,left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
 
 
-        <canvas id='stylebarcanvas' width={1018} height={1018} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
+        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef = ref;}}>
       
      </canvas>
