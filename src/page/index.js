@@ -80,15 +80,21 @@ class StyleBar extends Component{
   }
   tick() {
      var tickf=(s)=> {
+      
       if(s.canvasRef){
+        
         var canvaswidth=canvasW
         var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
         //console.log('pram',stylepram)
         var ctx=s.canvasRef.getContext('2d')
+
         ctx.clearRect(0,0,canvaswidth,canvaswidth)
+        ctx.globalCompositeOperation ='darker'
+        ctx.globalAlpha=1
         var imgObj1 = new Image();
         imgObj1.src=ProductsList[s.state.scenario1][s.state.scenario2]['pic']
         ctx.drawImage(imgObj1,0, 0,canvaswidth,canvaswidth);
+        ctx.globalAlpha=0.8
         if(!ProductsList[s.state.scenario1][s.state.scenario2]['pic']){console.log('failed')}
         var p = Math.PI / 180;
         for(let ii in stylepram){
@@ -260,7 +266,7 @@ class PortraitBar extends Component{
 export default class BackBroad extends Component {
     constructor(props){
         super(props)
-        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:0,scenario2:0,portrait:0,style:0,iscanvas:0}
+        this.state={progress:1,pic:0,picmode:0,peeps1:svg1,peeps2:svg2,peeps3:svg3,peeps4:svg4,scenario1:0,scenario2:0,portrait:0,style:0,iscanvas:0}
         this.toProgress = this.toProgress.bind(this);
         this.transpic=this.transpic.bind(this)
         this.transscenario1=this.transscenario1.bind(this)
