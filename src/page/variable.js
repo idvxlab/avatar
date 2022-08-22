@@ -46,8 +46,8 @@ var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.233,0.055,0.58,.58]
 var peepsp=[.05,0.02,1,1]
 var ProductsList={
-    'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},
-    'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
+'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},
+'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
 'study':{'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks},'cup':{'pic':cup},'socks':{'pic':socks}},
 'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
@@ -86,12 +86,13 @@ var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,sx:0.2,sy:0.2,degree:0.
 'work':{'cup':{'style1':[{x:0.25,y:0.3,sx:0.4,sy:0.4,degree:0},],
                 'style2':[{x:0.3,y:0.3,sx:0.15,sy:0.22,ty:0.2},{x:0.45,y:0.56,sx:0.15,sy:0.22,ty:-0.1,degree:0},
                     {x:0.5,y:0.26,sx:0.15,sy:0.22,ty:-0.2,degree:0}]},
-        'mousePad':{'style1':[{x:0.3,y:0.25,sx:0.22,sy:0.22}]},
-        'folder':{'style1':[{x:0.3,y:0.25,sx:0.22,sy:0.22}]},
-        'lunchbox':{'style1':[{x:0.47,y:0.25,sx:0.2,sy:0.10,ty:-0.8,degree:Math.PI*1/3}]},
-        'laptop':{'style1':[{x:0.55,y:0.45,sx:0.3,sy:0.3,degree:2*Math.PI/16}]},
-        'notebook':{'style1':[{x:0.3,y:0.65,sx:0.25,sy:0.25}]},
-        'usb':{'style1':[{x:0.55,y:0.42,sx:.15,sy:.15,degree:-Math.PI/20}]}},
+        'mousePad':{'style1':[
+            {x:0.14,y:0.25,sx:0.5,sy:0.5}]},
+        'folder':{'style1':[{x:0.3,y:0.42,sx:0.35,sy:0.35,tx:.15,ty:.0,degree:-Math.PI*3.5/20}]},
+        'lunchbox':{'style1':[{x:0.34,y:0.42,sx:0.28,sy:0.235}]},
+        'laptop':{'style1':[{x:0.6,y:0.52,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.62,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.25,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16}]},
+        'notebook':{'style1':[{x:0.18,y:0.57,sx:0.3,sy:0.25,tx:.25,degree:-Math.PI*7/30}]},
+        'usb':{'style1':[{x:0.55,y:0.37,sx:.22,sy:.22,degree:-Math.PI/20}]}},
 
 
 'sport':{'cup':{'style1':[{x:0.1,y:0.1,scale:1}]},

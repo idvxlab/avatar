@@ -101,8 +101,10 @@ class StyleBar extends Component{
           var i=stylepram[ii]
           var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0}
           //ctx.rotate(parmi.degree)
-          ctx.transform(parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy,parmi.e,parmi.f)
+          ctx.transform(1,0,0,1,parmi.e,parmi.f)
           ctx.rotate(parmi.degree)
+          //parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy
+          ctx.transform(parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy,0,0)
           var imgObj3=new Image()
           imgObj3.src=s.state.peeps
           ctx.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
@@ -266,7 +268,7 @@ class PortraitBar extends Component{
 export default class BackBroad extends Component {
     constructor(props){
         super(props)
-        this.state={progress:1,pic:0,picmode:0,peeps1:svg1,peeps2:svg2,peeps3:svg3,peeps4:svg4,scenario1:0,scenario2:0,portrait:0,style:0,iscanvas:0}
+        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:0,scenario2:0,portrait:0,style:0,iscanvas:0}
         this.toProgress = this.toProgress.bind(this);
         this.transpic=this.transpic.bind(this)
         this.transscenario1=this.transscenario1.bind(this)
