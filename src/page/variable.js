@@ -40,7 +40,7 @@ import mousePadO from '../img/products/work/mousePad.png'
 import socks from "../img/products/sports/socks.png";
 import tshirt from "../img/products/sports/tshirt.png";
 //var url='http://202.120.165.128:5000/service/avatar'
-var canvasW=509
+var canvasW=1500
 var versionn='1'
 var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.233,0.055,0.58,.58]
