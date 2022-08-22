@@ -164,7 +164,7 @@ class StyleBar extends Component{
         <div style={{position:"absolute",width:617,height:509,left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
 
 
-        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '509px',height: '509px',left: 54,top: 0,background: '#FFFFFF',
+        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef = ref;}}>
       
      </canvas>
