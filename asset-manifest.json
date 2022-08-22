@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/avatar/static/css/main.b8c10ff0.css",
-    "main.js": "/avatar/static/js/main.250f7607.js",
+    "main.js": "/avatar/static/js/main.5f3cda7e.js",
     "static/js/787.e5b7494a.chunk.js": "/avatar/static/js/787.e5b7494a.chunk.js",
     "static/media/tshirt.png": "/avatar/static/media/tshirt.2b439af3985dca564a26.png",
+    "static/media/cup.png": "/avatar/static/media/cup.c0524be23d2f6fbab2fa.png",
     "static/media/socks.png": "/avatar/static/media/socks.e3ef607d06d02daaa563.png",
-    "static/media/notebook.png": "/avatar/static/media/notebook.466b8778a334a7de0d96.png",
-    "static/media/laptop.png": "/avatar/static/media/laptop.d72abf61c4b2f9900427.png",
-    "static/media/usb.png": "/avatar/static/media/usb.2741235ac10cc796941f.png",
-    "static/media/food container.png": "/avatar/static/media/food container.ff7b654fe7d998944c8e.png",
-    "static/media/cup.png": "/avatar/static/media/cup.acf9696d0f02a334dded.png",
+    "static/media/usb.png": "/avatar/static/media/usb.db402562a31dced20e46.png",
+    "static/media/laptop.png": "/avatar/static/media/laptop.340b4ca81e4ce35572dc.png",
+    "static/media/mousePad.png": "/avatar/static/media/mousePad.0d331bfb99e9252b6b29.png",
+    "static/media/notebook.png": "/avatar/static/media/notebook.75963a8866ad6aeb9b6f.png",
+    "static/media/lunchbox.png": "/avatar/static/media/lunchbox.1f0f35a1d43e660fa3bf.png",
+    "static/media/folder.png": "/avatar/static/media/folder.fb368a1d9f5365740ab7.png",
     "static/media/Poppins-Medium.ttf": "/avatar/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-Bold.ttf": "/avatar/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
-    "static/media/folder.png": "/avatar/static/media/folder.60d20295565a3d9545a4.png",
     "static/media/2-zoning out.svg": "/avatar/static/media/2-zoning out.c4037b81b5623ff66ec78a7578b11e13.svg",
     "static/media/Cabin-Medium.ttf": "/avatar/static/media/Cabin-Medium.1256de63504888a7d9dc.ttf",
     "static/media/Cabin-Bold.ttf": "/avatar/static/media/Cabin-Bold.6d8418d109bed523706d.ttf",
@@ -38,11 +39,11 @@
     "static/media/Gym Shirt.svg": "/avatar/static/media/Gym Shirt.47287c55726370ee25b9561e070c735f.svg",
     "index.html": "/avatar/index.html",
     "main.b8c10ff0.css.map": "/avatar/static/css/main.b8c10ff0.css.map",
-    "main.250f7607.js.map": "/avatar/static/js/main.250f7607.js.map",
+    "main.5f3cda7e.js.map": "/avatar/static/js/main.5f3cda7e.js.map",
     "787.e5b7494a.chunk.js.map": "/avatar/static/js/787.e5b7494a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b8c10ff0.css",
-    "static/js/main.250f7607.js"
+    "static/js/main.5f3cda7e.js"
   ]
 }
