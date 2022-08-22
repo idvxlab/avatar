@@ -20,13 +20,21 @@ import slackingOff from '../img/portrait/work/1-slacking off.svg'
 import waitingForLunch from '../img/portrait/work/1-waiting for lunch.svg'
 import workingOvertime from '../img/portrait/work/1-working overtime.svg'
 
-import cup from '../img/products/work/cup.png'
-import folder from '../img/products/work/folder.png'
-import lunchBox from '../img/products/work/lunchbox.png'
-import laptop from '../img/products/work/laptop.png'
-import notebook from '../img/products/work/notebook.png'
-import usb from '../img/products/work/usb.png'
-import mousePad from '../img/products/work/mousePad.png'
+import cup from '../img/products/work/cup-1.png'
+import folder from '../img/products/work/folder-1.png'
+import lunchBox from '../img/products/work/lunchbox-1.png'
+import laptop from '../img/products/work/laptop-1.png'
+import notebook from '../img/products/work/notebook-1.png'
+import usb from '../img/products/work/usb-1.png'
+import mousePad from '../img/products/work/mousePad-1.png'
+
+import cupO from '../img/products/work/cup.png'
+import folderO from '../img/products/work/folder.png'
+import lunchBoxO from '../img/products/work/lunchbox.png'
+import laptopO from '../img/products/work/laptop.png'
+import notebookO from '../img/products/work/notebook.png'
+import usbO from '../img/products/work/usb.png'
+import mousePadO from '../img/products/work/mousePad.png'
 
 //import cup from "../img/products/sports/cup.png";
 import socks from "../img/products/sports/socks.png";
@@ -47,6 +55,18 @@ var ProductsList={
 'party1':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
+
+var ProductsListO={
+    'work':{'cup':{'pic':cupO},'folder':{'pic':folderO},'lunchbox':{'pic':lunchBoxO},
+    'laptop':{'pic':laptopO},'notebook':{'pic':notebookO},'usb':{'pic':usbO},'mousePad':{'pic':mousePadO}},
+'study':{'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks},'cup':{'pic':cup},'socks':{'pic':socks}},
+'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
+'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
+'party':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
+'party1':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
+0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
+}
+
 var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pic':feelingSleepy},'fullMark':{'pic':fullMark},
 'reading':{'pic':reading},'zoningOut':{'pic':zoningOut}},
 'work':{'brainstorming':{'pic':brainstorming},'doingPresentation':{'pic':doPre},
@@ -62,7 +82,8 @@ var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,sx:0.2,sy:0.2,degree:0.
           'tshirt':{'style1':[{x:0.1,y:0.1,scale:1}]},
           'tshirt2':{'style1':[{x:0.1,y:0.1,scale:1}]},
           'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]}},
-'work':{'cup':{'style1':[{x:0.25,y:0.3,sx:0.2,sy:0.3,ty:0.2,degree:0},],
+
+'work':{'cup':{'style1':[{x:0.25,y:0.3,sx:0.4,sy:0.4,degree:0},],
                 'style2':[{x:0.3,y:0.3,sx:0.15,sy:0.22,ty:0.2},{x:0.45,y:0.56,sx:0.15,sy:0.22,ty:-0.1,degree:0},
                     {x:0.5,y:0.26,sx:0.15,sy:0.22,ty:-0.2,degree:0}]},
         'mousePad':{'style1':[{x:0.3,y:0.25,sx:0.22,sy:0.22}]},
@@ -71,6 +92,8 @@ var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,sx:0.2,sy:0.2,degree:0.
         'laptop':{'style1':[{x:0.55,y:0.45,sx:0.3,sy:0.3,degree:2*Math.PI/16}]},
         'notebook':{'style1':[{x:0.3,y:0.65,sx:0.25,sy:0.25}]},
         'usb':{'style1':[{x:0.55,y:0.42,sx:.15,sy:.15,degree:-Math.PI/20}]}},
+
+
 'sport':{'cup':{'style1':[{x:0.1,y:0.1,scale:1}]},
             'socks':{'style1':[{x:0.1,y:0.1,scale:1}]},
             'cup2':{'style1':[{x:0.1,y:0.1,scale:1}]},
@@ -91,4 +114,4 @@ var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,sx:0.2,sy:0.2,degree:0.
             'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-export{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn,canvasW}
+export{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn,canvasW,ProductsListO}

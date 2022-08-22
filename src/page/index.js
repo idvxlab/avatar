@@ -14,7 +14,7 @@ import ScenarioButton2 from "../componet/meta/scenariobutton2";
 import StyleButton from "../componet/meta/stylebutton";
 import Loading from "../componet/meta/loading";
 import axios from 'axios'
-import{ProductsList,StyleBarList,PortraitBarList,url,headp,peepsp,canvasW,svg1,svg2,svg3,svg4} from "./variable";
+import{ProductsList,ProductsListO,StyleBarList,PortraitBarList,url,headp,peepsp,canvasW,svg1,svg2,svg3,svg4} from "./variable";
 
 
 class Scenariobar extends Component{
@@ -92,7 +92,7 @@ class StyleBar extends Component{
         ctx.globalCompositeOperation ='darker'
         ctx.globalAlpha=1
         var imgObj1 = new Image();
-        imgObj1.src=ProductsList[s.state.scenario1][s.state.scenario2]['pic']
+        imgObj1.src=ProductsListO[s.state.scenario1][s.state.scenario2]['pic']
         ctx.drawImage(imgObj1,0, 0,canvaswidth,canvaswidth);
         ctx.globalAlpha=0.8
         if(!ProductsList[s.state.scenario1][s.state.scenario2]['pic']){console.log('failed')}
@@ -246,7 +246,7 @@ class PortraitBar extends Component{
     else if(this.state.scenario1 && this.state.scenario2){
       return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
-      <div style={{position:'absolute',left:45+'px',top:50+'px'}}><img src={ProductsList[this.state.scenario1][this.state.scenario2]['pic']} alt='no way' width={350+'px'} height={350+'px'}/></div>
+      <div style={{position:'absolute',left:45+'px',top:50+'px'}}><img src={ProductsListO[this.state.scenario1][this.state.scenario2]['pic']} alt='no way' width={350+'px'} height={350+'px'}/></div>
       <div style={{position: 'absolute',width: '100%',height:'60px',textAlign:'center',top: '425px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '40px',lineHeight: '60px',color:'#4D59BF'
 }}>{this.state.scenario2}</div>
     </div><div  className='protraitBBar' >{dddiv}</div>
