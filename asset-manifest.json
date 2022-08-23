@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/avatar/static/css/main.b8c10ff0.css",
-    "main.js": "/avatar/static/js/main.822846be.js",
+    "main.js": "/avatar/static/js/main.b3b95dc9.js",
     "static/js/787.e5b7494a.chunk.js": "/avatar/static/js/787.e5b7494a.chunk.js",
     "static/media/tshirt.png": "/avatar/static/media/tshirt.2b439af3985dca564a26.png",
     "static/media/socks.png": "/avatar/static/media/socks.e3ef607d06d02daaa563.png",
@@ -24,33 +24,33 @@
     "static/media/2-zoning out.svg": "/avatar/static/media/2-zoning out.c4037b81b5623ff66ec78a7578b11e13.svg",
     "static/media/Cabin-Medium.ttf": "/avatar/static/media/Cabin-Medium.1256de63504888a7d9dc.ttf",
     "static/media/Cabin-Bold.ttf": "/avatar/static/media/Cabin-Bold.6d8418d109bed523706d.ttf",
-    "static/media/1-brainstorming.svg": "/avatar/static/media/1-brainstorming.d404799e5ab5d1d679aa006eee16aac2.svg",
-    "static/media/1-waiting for lunch.svg": "/avatar/static/media/1-waiting for lunch.6d6800328253b5ec2921a8ea90561718.svg",
+    "static/media/1-brainstorming.svg": "/avatar/static/media/1-brainstorming.12d21fd24d8bcf01ac1490a5e9e65d15.svg",
     "static/media/2-feeling sleepy.svg": "/avatar/static/media/2-feeling sleepy.2149f5cbad2fd6a082be1daa8dec13d4.svg",
     "static/media/2-brain wave.svg": "/avatar/static/media/2-brain wave.73e9c51a9d2444197a04bcf52b09b7e5.svg",
     "static/media/Device.svg": "/avatar/static/media/Device.895cc3f0b2d905a0466532d9a059dbb8.svg",
     "static/media/2-reading.svg": "/avatar/static/media/2-reading.2984d757470f3148d45219b2810fa3a4.svg",
     "static/media/Gaming.svg": "/avatar/static/media/Gaming.0b83d5c5c5731db745a2614ce027139b.svg",
-    "static/media/1-working overtime.svg": "/avatar/static/media/1-working overtime.3360eb5657e62dc56f26b065ca948ec1.svg",
+    "static/media/1-waiting for lunch.svg": "/avatar/static/media/1-waiting for lunch.d9a2d5774e3689d248b36513f38c4b8a.svg",
     "static/media/Paper.svg": "/avatar/static/media/Paper.55be0977088de3094e23004e55ae5fd8.svg",
-    "static/media/1-doing presentation.svg": "/avatar/static/media/1-doing presentation.acc2d53ddab2abd97adc3d4da78b7f9a.svg",
-    "static/media/1-slacking off.svg": "/avatar/static/media/1-slacking off.a894f9a257bae2e58538770cdffeee4d.svg",
     "static/media/Explaining.svg": "/avatar/static/media/Explaining.2105bdc8fefbcf58c270adb68b4f15a6.svg",
+    "static/media/1-slacking off.svg": "/avatar/static/media/1-slacking off.2f109f8e7b40901fd92ec01da1257be6.svg",
     "static/media/2-full mark.svg": "/avatar/static/media/2-full mark.09fb00a32162e967c47b4f8f479da574.svg",
+    "static/media/1-doing presentation.svg": "/avatar/static/media/1-doing presentation.6864d3790c042a657515336f88873b63.svg",
     "static/media/000003.svg": "/avatar/static/media/000003.1fae294449e86feeb1e2a59ab2d1f503.svg",
     "static/media/000002.svg": "/avatar/static/media/000002.5b6bb5be480e22e1170b461c0cd09903.svg",
     "static/media/Sporty Tee.svg": "/avatar/static/media/Sporty Tee.75e4794ffd44e561a5db903baef92c9c.svg",
+    "static/media/1-working overtime.svg": "/avatar/static/media/1-working overtime.9d2910c2aac86930072704994bd83181.svg",
     "static/media/000000.svg": "/avatar/static/media/000000.69dc645f5be195c573f21aa7a60756a9.svg",
     "static/media/000001.svg": "/avatar/static/media/000001.de25cb0979d10424620de43cedf1004a.svg",
     "static/media/Dress.svg": "/avatar/static/media/Dress.ab7c441d8307ab7327cc8b8796752af2.svg",
     "static/media/Gym Shirt.svg": "/avatar/static/media/Gym Shirt.47287c55726370ee25b9561e070c735f.svg",
     "index.html": "/avatar/index.html",
     "main.b8c10ff0.css.map": "/avatar/static/css/main.b8c10ff0.css.map",
-    "main.822846be.js.map": "/avatar/static/js/main.822846be.js.map",
+    "main.b3b95dc9.js.map": "/avatar/static/js/main.b3b95dc9.js.map",
     "787.e5b7494a.chunk.js.map": "/avatar/static/js/787.e5b7494a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b8c10ff0.css",
-    "static/js/main.822846be.js"
+    "static/js/main.b3b95dc9.js"
   ]
 }
