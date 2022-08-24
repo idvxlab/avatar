@@ -58,7 +58,8 @@ class StyleBar extends Component{
       scenario2:this.props.scenario2,
       portrait:this.props.portrait,
       style:this.props.style,
-      iscanvas:this.props.iscanvas
+      iscanvas:this.props.iscanvas,
+      imageData:0,peepsData:0
     }
   this.scenarioTo=this.scenarioTo.bind(this)
   }
@@ -71,8 +72,8 @@ class StyleBar extends Component{
     this.props.transscenario1(num);}
   componentDidMount() {
     this.timerID = setInterval(
-      () => this.tick(),
-      10
+      ()=>{this.tick()},
+      300
     );
   }
   componentWillUnmount() {
@@ -80,44 +81,61 @@ class StyleBar extends Component{
   }
   tick() {
      var tickf=(s)=> {
-      
-      if(s.canvasRef){
-        
-        var canvaswidth=canvasW
-        var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
-        //console.log('pram',stylepram)
-        var ctx=s.canvasRef.getContext('2d')
-        ctx.globalCompositeOperation="darker";
+      var canvaswidth=canvasW
+      var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
+      //console.log((ProductsListO[s.state.scenario1][s.state.scenario2]['pic'] &&PortraitBarList[s.state.scenario1][s.state.portrait]['pic']&& s.state.peeps))
+      if(s.canvasRef1 && s.canvasRef2 && s.canvasRef3){
+        var s1=new Date();
+          var ctx2=s.canvasRef2.getContext('2d')
+          ctx2.clearRect(0,0,canvaswidth,canvaswidth)
+          for(let ii in stylepram){
+            var i=stylepram[ii]
+            var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0}
+            //ctx.rotate(parmi.degree)
+            ctx2.transform(1,0,0,1,parmi.e,parmi.f)
+            ctx2.rotate(parmi.degree)
+            //parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy
+            ctx2.transform(parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy,0,0)
+            var imgObj2=new Image()
+            imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
+            ctx2.drawImage(imgObj2,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);
+            var imgObj3=new Image()
+            imgObj3.src=s.state.peeps
+            ctx2.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
+            ctx2.setTransform()
+            //console.log(imgObj2,imgObj3)
+        }
+        var peepsData=ctx2.getImageData(0,0,canvaswidth,canvaswidth)
+        this.setState({peepsData:peepsData.data})
+        //console.log(this.state.peepsData)
+        var ctx=s.canvasRef1.getContext('2d')
         ctx.clearRect(0,0,canvaswidth,canvaswidth)
-        ctx.globalCompositeOperation ='darker'
-        ctx.globalAlpha=0.8
         var imgObj1 = new Image();
         imgObj1.src=ProductsListO[s.state.scenario1][s.state.scenario2]['pic']
+        //ctx2.drawImage(imgObj1,0, 0,canvaswidth,canvaswidth);
         ctx.drawImage(imgObj1,0, 0,canvaswidth,canvaswidth);
-        if(!ProductsList[s.state.scenario1][s.state.scenario2]['pic']){console.log('failed')}
-        var p = Math.PI / 180;
-        ctx.globalAlpha=0.5
-        //ctx.getImageData(0,0,canvasW,canvasW)
-        for(let ii in stylepram){
-          var i=stylepram[ii]
-          var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0}
-          //ctx.rotate(parmi.degree)
-          ctx.transform(1,0,0,1,parmi.e,parmi.f)
-          ctx.rotate(parmi.degree)
-          //parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy
-          ctx.transform(parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy,0,0)
-          var imgObj2=new Image()
-          imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
-          ctx.globalAlpha=0.8
-          ctx.drawImage(imgObj2,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);
-          var imgObj3=new Image()
-          imgObj3.src=s.state.peeps
-          ctx.globalAlpha=1
-          ctx.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
-          ctx.setTransform()
+        var imageData=ctx.getImageData(0,0,canvaswidth,canvaswidth)
+        //console.log(this.state.peepsData===peepsData.data)
+        this.setState({imageData:imageData.data})
+        //console.log(this.state.peepsData,this.state.imageData)
+        if(this.state.imageData && this.state.peepsData){
+         // console.log('init')
+          for (var i=0;i<imageData.data.length;i+=1)
+          {
+            imageData.data[i]=imageData.data[i]*peepsData.data[i]/255;
+          }
+          ctx.putImageData(imageData,0,0)
         }
-      }
-
+          var ctx3=s.canvasRef3.getContext('2d')
+          var imgObj4=new Image()
+          imgObj4.src=s.canvasRef1.toDataURL()
+          ctx3.drawImage(imgObj1,0,0,canvaswidth,canvaswidth)
+          ctx3.drawImage(imgObj4,0,0,canvaswidth,canvaswidth)
+          var ctx4=s.canvasRef4.getContext('2d')
+        var imgObj5=new Image()
+        imgObj5.src=s.canvasRef3.toDataURL()
+        ctx4.drawImage(imgObj5,0,0,canvaswidth,canvaswidth)
+        }
     }
     tickf(this)
     
@@ -139,26 +157,34 @@ class StyleBar extends Component{
         {ddddiv}
         </div>
         <div style={{position:"absolute",width:617,height:509,left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
-
-
-        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
-     }} ref={(ref) => {this.canvasRef = ref;}}>
-      
-     </canvas>
-        </div>
         
-  
+        
+        
+        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     }} ref={(ref) => {this.canvasRef2 = ref;}}>
+     </canvas>
+     <canvas id='stylebarcanvas2' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     }} ref={(ref) => {this.canvasRef1 = ref;}}>
+     </canvas>
+     <canvas id='stylebarcanvas3' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     }} ref={(ref) => {this.canvasRef3 = ref;}}>
+     </canvas>
+     <canvas id='stylebarcanvas4' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     }} ref={(ref) => {this.canvasRef4 = ref;}}>
+     </canvas>
+        
+        
+
+        </div>
       </div>)}
       //PortraitBarList[this.state.scenario1][this.state.scenario2]['pic']
     else{return (<div>
       <div className='stylebarbar' >
       {ddddiv}
       </div>
-      
       <div style={{position: 'absolute',width: '617px',height: '509px',left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
    }}>
     <div style={{position:'absolute',left:87,top:32,width:443,height:437}}>
-    
     </div>
    </div>
     </div>)}
@@ -196,7 +222,49 @@ class PortraitBar extends Component{
     return {scenario1:props.scenario1,scenario2:props.scenario2,portrait:props.portrait};
   }
   render(){
+    var stylepram=StyleBarList[this.state.scenario1][this.state.scenario2]['style1']
+    var dddddiv=stylepram.map((item,index)=>{
+      var headpram='',peepspram='',totalpram=''
+      var i=item
+      var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*350:0,f:i.y?i.y*350:0,degree:i.degree?i.degree:0}
+      var a,b,c,d,e,f
+      var a1,b1,c1,d1,e1,f1
+      a=Math.cos(parmi.degree)
+      b=Math.sin(parmi.degree)
+      c=-Math.sin(parmi.degree)
+      d=Math.cos(parmi.degree)
+      a1=a*parmi.sx+c*parmi.sy*parmi.ty
+      b1=b*parmi.sx+d*parmi.sy*parmi.ty
+      c1=a*parmi.sx*parmi.tx+c*parmi.sy
+      d1=b*parmi.sx*parmi.tx+d*parmi.sy
+      a=a1
+      b=b1
+      c=c1
+      d=d1
+/*
+            var imgObj2=new Image()
+            imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
+            ctx2.drawImage(imgObj2,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);
+            var imgObj3=new Image()
+            imgObj3.src=s.state.peeps
+            ctx2.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
+*/
+      e=parmi.e
+      f=parmi.f
+      totalpram+=`matrix(${a},${b},${c},${d},${e},${f})`
+      console.log(headp)
+      headpram+=`matrix(${headp[2]},${0},${0},${headp[3]},${headp[0]*0},${headp[1]*0})`
+      peepspram+=`matrix(${peepsp[2]},${0},${0},${peepsp[3]},${peepsp[0]*350},${peepsp[1]*350})`
+    return(<div key={index+'sssu'} style={{position:'absolute',left:0+'px',top:0+'px',transform:totalpram}}>
+      <div style={{position:'absolute',left:350*peepsp[0]+'px',top:350*peepsp[1]+'px'}}>
+      <img  style={{position:'absolute',left:0+'px',top:0+'px'}} width={350*peepsp[2]} height={350*peepsp[3]} src={PortraitBarList[this.state.scenario1][this.state.portrait]['pic']} alt='loading failed' />
+      </div>
+      <div style={{position:'absolute',left:350*headp[0]+'px',top:350*headp[1]+'px'}}>
+      <img  style={{position:'absolute',left:0+'px',top:0+'px'}}src={this.state.peeps} alt='loading failed' width={350*headp[2]} height={350*headp[3]}/>
+      </div>
     
+  </div>)
+    })
     var s1=this.state.scenario1
     var barlist=[]
     var Portrait=PortraitBarList[s1]
@@ -222,10 +290,13 @@ class PortraitBar extends Component{
 </svg>
     </div>)
     }
-    else if(this.state.scenario1 && this.state.scenario2){
+    else if(this.state.scenario1 && this.state.scenario2 && this.state.portrait){
       return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
-      <div style={{position:'absolute',left:45+'px',top:50+'px'}}><img src={ProductsListO[this.state.scenario1][this.state.scenario2]['pic']} alt='no way' width={350+'px'} height={350+'px'}/></div>
+      <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:'multiply'}}><img src={ProductsListO[this.state.scenario1][this.state.scenario2]['pic']} alt='no way' width={350+'px'} height={350+'px'}/></div>
+      <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:'multiply'}}>
+        {dddddiv}
+        </div>
       <div style={{position: 'absolute',width: '100%',height:'60px',textAlign:'center',top: '425px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '40px',lineHeight: '60px',color:'#4D59BF'
 }}>{this.state.scenario2}</div>
     </div><div  className='protraitBBar' >{dddiv}</div>
@@ -245,7 +316,7 @@ class PortraitBar extends Component{
 export default class BackBroad extends Component {
     constructor(props){
         super(props)
-        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:0,scenario2:0,portrait:0,style:0,iscanvas:0}
+        this.state={progress:1,pic:0,picmode:0,peeps1:svg1,peeps2:svg2,peeps3:svg3,peeps4:svg4,scenario1:'work',scenario2:'cup',portrait:'brainstorming',style:'style1',iscanvas:0}
         this.toProgress = this.toProgress.bind(this);
         this.transpic=this.transpic.bind(this)
         this.transscenario1=this.transscenario1.bind(this)
@@ -307,14 +378,20 @@ export default class BackBroad extends Component {
 }   
 
 transscenario1(num){
-  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:num,scenario2:0,portrait:0,style:0})
+  var portrait
+  var Portrait=PortraitBarList[num]
+  for (let iii in Portrait){portrait=iii;break;}
+  var product
+  var Product=ProductsListO[num]
+  for (let iii in Product){product=iii;break;}
+  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:num,scenario2:product,portrait:portrait,style:'style1'})
 }
 trancanvas(num){this.setState({iscanvas:num})}
 transscenario2(num){
-  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:num,portrait:this.state.portrait,style:0})
+  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:num,portrait:this.state.portrait,style:'style1'})
 }
 transportrait(num){
-  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:this.state.scenario2,portrait:num,style:0})
+  this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:this.state.scenario2,portrait:num,style:'style1'})
 }
 transtyle(num){
   this.setState({pic:this.state.pic,picmode:this.state.picmode,peeps1:this.state.peeps1,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:this.state.peeps4,scenario1:this.state.scenario1,scenario2:this.state.scenario2,portrait:this.state.portrait,style:num})
@@ -346,7 +423,7 @@ transpeeps(peeps1,peeps2,peeps3,peeps4){
       var s1= {peeps1:b,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:a}
       this.setState(s1);}
 render(){
-  //console.log(this.state)
+  console.log(this.state)
   if(this.state.progress===1){if(!this.state.peeps1){
     return (
       <div>
@@ -481,7 +558,7 @@ render(){
     }}>Select a style</div>
     <StyleBar peeps={this.state.peeps1} iscanvas={0} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
     <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
-    <div onClick={(()=>{console.log(1);let data = document.getElementById('stylebarcanvas').toDataURL();
+    <div onClick={(()=>{console.log(1);let data = document.getElementById('stylebarcanvas4').toDataURL();
     const a_link = document.createElement('a');
     fetch(data)    // 括号里是文件链接
     .then((res) => res.blob())
@@ -489,10 +566,11 @@ render(){
           // 将链接地址字符内容转变成blob地址
        a_link.href = URL.createObjectURL(blob);
        //console.log(a_link.href);
-       a_link.download = 'this'; //下载的文件的名字
+       a_link.download = 'result'; //下载的文件的名字
        document.body.appendChild(a_link);
        a_link.click();
    });
+ 
     
     })}><div className='exportButtonText'>Export</div><NextButton2></NextButton2></div>
             

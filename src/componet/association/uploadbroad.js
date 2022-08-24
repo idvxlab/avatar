@@ -33,7 +33,9 @@ class Video1 extends Component{
         let video = document.getElementById("video");
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext('2d');
+        ctx.transform(-1,0,0,1,294,0)
         ctx.drawImage(video, 0, 0, 294, 378);
+        ctx.setTransform()
         var image = new Image();
         
         image.src = canvas.toDataURL("image/jpeg");
