@@ -36,6 +36,22 @@ import notebookO from '../img/products/work/notebook.png'
 import usbO from '../img/products/work/usb.png'
 import mousePadO from '../img/products/work/mousePad.png'
 
+import cardholderO from '../img/products/study/O/cardholder.png'
+import folderSO from '../img/products/study/O/folder.png'
+import pencilcaseO from '../img/products/study/O/pencilcase.png'
+import schoolbagO from '../img/products/study/O/schoolbag.png'
+import notebookSO from '../img/products/study/O/notebook.png'
+import bagO from '../img/products/study/O/bag.png'
+import calendarO from '../img/products/study/O/calendar.png'
+
+import cardholder from '../img/products/study/cardholder.png'
+import folderS from '../img/products/study/folder.png'
+import pencilcase from '../img/products/study/pencilcase.png'
+import schoolbag from '../img/products/study/schoolbag.png'
+import notebookS from '../img/products/study/notebook.png'
+import bag from '../img/products/study/bag.png'
+import calendar from '../img/products/study/calendar.png'
+
 //import cup from "../img/products/sports/cup.png";
 import socks from "../img/products/sports/socks.png";
 import tshirt from "../img/products/sports/tshirt.png";
@@ -46,9 +62,9 @@ var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.233,0.055,0.58,.58]
 var peepsp=[.05,0.02,1,1]
 var ProductsList={
-'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},
-'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
-'study':{'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks},'cup':{'pic':cup},'socks':{'pic':socks}},
+'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
+'study':{'cardholder':{'pic':cardholder},'folder':{'pic':folderS},'pencilcase':{'pic':pencilcase},
+'schoolbag':{'pic':schoolbag},'notebook':{'pic':notebookS},'bag':{'pic':bag},'calendar':{'pic':calendar}},
 'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'party':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
@@ -58,7 +74,8 @@ var ProductsList={
 var ProductsListO={
     'work':{'cup':{'pic':cupO},'folder':{'pic':folderO},'lunchbox':{'pic':lunchBoxO},
     'laptop':{'pic':laptopO},'notebook':{'pic':notebookO},'usb':{'pic':usbO},'mousePad':{'pic':mousePadO}},
-'study':{'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks},'cup':{'pic':cup},'socks':{'pic':socks}},
+'study':{'cardholder':{'pic':cardholderO},'folder':{'pic':folderSO},'pencilcase':{'pic':pencilcaseO},
+'schoolbag':{'pic':schoolbagO},'notebook':{'pic':notebookSO},'bag':{'pic':bagO},'calendar':{'pic':calendarO}},
 'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'party':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
@@ -74,12 +91,15 @@ var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pi
 'party':{'peep1':{'pic':paper},'peep2':{'pic':sportyTee},},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-var StyleBarList={'study':{'cup':{'style1':[{x:0.1,y:0.1,sx:0.2,sy:0.2,degree:0.1},{x:0.4,y:0.4,sx:0.2,sy:0.2,degree:0.1}],'style2':[{x:0.5,y:0.5,sx:0.2,sy:0.2,degree:-0.1}]},
-          'socks':{'style1':[{x:0.2,y:0.18,scale:.25,rotate:Math.PI/4},{x:0.5,y:0.18,scale:.25}],'style2':[{x:0.4,y:0.18,scale:.25,rotate:Math.PI/4},{x:0.8,y:0.18,scale:.25}]},
-          'cup2':{'style1':[{x:0.1,y:0.1,scale:1}]},
-          'tshirt':{'style1':[{x:0.1,y:0.1,scale:1}]},
-          'tshirt2':{'style1':[{x:0.1,y:0.1,scale:1}]},
-          'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]}},
+var StyleBarList={'study':{
+        'cardholder':{'style1':[{x:0.25,y:0.5,sx:0.34,sy:0.43,degree:-.9,ty:.29}],
+                                        'style2':[{x:0.5,y:0.5,sx:0.2,sy:0.2,degree:-0.1}]},
+          'bag':{'style1':[{x:0.23,y:0.33,sx:.56,sy:.56}],'style2':[{x:0.4,y:0.18,scale:.25,rotate:Math.PI/4},{x:0.8,y:0.18,scale:.25}]},
+          'notebook':{'style1':[{x:0.18,y:0.57,sx:0.3,sy:0.25,tx:.25,degree:-Math.PI*7/30}]},
+          'folder':{'style1':[{x:0.3,y:0.42,sx:0.35,sy:0.35,tx:.15,ty:.0,degree:-Math.PI*3.5/20}]},
+          'pencilcase':{'style1':[{x:0.07,y:0.37,sx:.5,sy:.26}]},
+          'calendar':{'style1':[{x:.24,y:0.18,sx:0.43,sy:.43,ty:.12,degree:.08}]},
+          'schoolbag':{'style1':[{x:0.2,y:0.27,sx:0.5,sy:0.5}]}},
 
 'work':{'cup':{'style1':[{x:0.25,y:0.3,sx:0.4,sy:0.4,degree:0},],
                 'style2':[{x:0.3,y:0.3,sx:0.15,sy:0.22,ty:0.2},{x:0.45,y:0.56,sx:0.15,sy:0.22,ty:-0.1,degree:0},
