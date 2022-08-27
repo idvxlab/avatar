@@ -20,6 +20,14 @@ import slackingOff from '../img/portrait/work/1-slacking off.svg'
 import waitingForLunch from '../img/portrait/work/1-waiting for lunch.svg'
 import workingOvertime from '../img/portrait/work/1-working overtime.svg'
 
+import sport_a1 from '../img/portrait/sports/head-01 copy.svg'
+import sport_a2 from '../img/portrait/sports/head-01 copy 2.svg'
+import sport_a3 from '../img/portrait/sports/head-01 copy 3.svg'
+import sport_a4 from '../img/portrait/sports/head-01 copy 4.svg'
+import sport_a5 from '../img/portrait/sports/head-01 copy 5.svg'
+import sport_a6 from '../img/portrait/sports/head-01 copy 6.svg'
+import sport_a7 from '../img/portrait/sports/head-01 copy 7.svg'
+
 import cup from '../img/products/work/cup-1.png'
 import folder from '../img/products/work/folder-1.png'
 import lunchBox from '../img/products/work/lunchbox-1.png'
@@ -52,9 +60,27 @@ import notebookS from '../img/products/study/notebook.png'
 import bag from '../img/products/study/bag.png'
 import calendar from '../img/products/study/calendar.png'
 
+
+
+import equipmentbagO from '../img/products/sports/O/equipment bag.png'
+import hoodyO from '../img/products/sports/O/hoody.png'
+import skateboardO from '../img/products/sports/O/skateboard.png'
+import socksO from '../img/products/sports/O/socks.png'
+import tshirtO from '../img/products/sports/O/tshirt.png'
+import bottleO from '../img/products/sports/O/bottle.png'
+import capO from '../img/products/sports/O/cap.png'
+
+import equipmentbag from '../img/products/sports/equipment bag.png'
+import hoody from '../img/products/sports/hoody.png'
+import skateboard from '../img/products/sports/skateboard.png'
+import socks from '../img/products/sports/socks.png'
+import tshirt from '../img/products/sports/tshirt.png'
+import bottle from '../img/products/sports/bottle.png'
+import cap from '../img/products/sports/cap.png'
+
 //import cup from "../img/products/sports/cup.png";
-import socks from "../img/products/sports/socks.png";
-import tshirt from "../img/products/sports/tshirt.png";
+//import socks from "../img/products/sports/socks.png";
+//import tshirt from "../img/products/sports/tshirt.png";
 //var url='http://202.120.165.128:5000/service/avatar'
 var canvasW=1500
 var versionn='1'
@@ -65,7 +91,9 @@ var ProductsList={
 'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
 'study':{'cardholder':{'pic':cardholder},'folder':{'pic':folderS},'pencilcase':{'pic':pencilcase},
 'schoolbag':{'pic':schoolbag},'notebook':{'pic':notebookS},'bag':{'pic':bag},'calendar':{'pic':calendar}},
-'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
+'sport':{'equipmentbag':{'pic':equipmentbag},'hoody':{'pic':hoody},'skateboard':{'pic':skateboard},'socks':{'pic':socks},
+    'tshirt':{'pic':tshirt},'bottle':{'pic':bottle},'cap':{'pic':cap}},
+
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'party':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
@@ -76,7 +104,9 @@ var ProductsListO={
     'laptop':{'pic':laptopO},'notebook':{'pic':notebookO},'usb':{'pic':usbO},'mousePad':{'pic':mousePadO}},
 'study':{'cardholder':{'pic':cardholderO},'folder':{'pic':folderSO},'pencilcase':{'pic':pencilcaseO},
 'schoolbag':{'pic':schoolbagO},'notebook':{'pic':notebookSO},'bag':{'pic':bagO},'calendar':{'pic':calendarO}},
-'sport':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
+'sport':{'equipmentbag':{'pic':equipmentbagO},'hoody':{'pic':hoodyO},'skateboard':{'pic':skateboardO},'socks':{'pic':socksO},
+    'tshirt':{'pic':tshirtO},'bottle':{'pic':bottleO},'cap':{'pic':capO}},
+
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 'party':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
@@ -86,7 +116,11 @@ var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pi
 'reading':{'pic':reading},'zoningOut':{'pic':zoningOut}},
 'work':{'brainstorming':{'pic':brainstorming},'doingPresentation':{'pic':doPre},
 'slackingOff':{'pic':slackingOff},'waitingForLunch':{'pic':waitingForLunch},'workingOverTime':{'pic':workingOvertime}},
-'sport':{'peep1':{'pic':dress},'peep2':{'pic':gaming},'peep3':{'pic':explaining},'peep4':{'pic':gymShirt}},
+'sport':{'peep1':{'pic':sport_a1},
+//'peep2':{'pic':sport_a2},
+'peep3':{'pic':sport_a3},'peep4':{'pic':sport_a4},'peep5':{'pic':sport_a5},'peep6':{'pic':sport_a6},
+//'peep7':{'pic':sport_a7}
+},
 'travel':{'peep1':{'pic':device},'peep2':{'pic':dress},'peep3':{'pic':paper},'peep4':{'pic':gymShirt}},
 'party':{'peep1':{'pic':paper},'peep2':{'pic':sportyTee},},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
@@ -111,14 +145,13 @@ var StyleBarList={'study':{
         'laptop':{'style1':[{x:0.6,y:0.52,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.62,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.25,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16}]},
         'notebook':{'style1':[{x:0.18,y:0.57,sx:0.3,sy:0.25,tx:.25,degree:-Math.PI*7/30}]},
         'usb':{'style1':[{x:0.55,y:0.37,sx:.22,sy:.22,degree:-Math.PI/20}]}},
-
-
-'sport':{'cup':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'socks':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'cup2':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'tshirt':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'tshirt2':{'style1':[{x:0.1,y:0.1,scale:1}]},
-            'socks2':{'style1':[{x:0.1,y:0.1,scale:1}]},},
+'sport':{'equipmentbag':{'style1':[{x:0.31,y:0.25,sx:.33,sy:.52}]},
+        'hoody':{'style1':[{x:0.31,y:0.38,sx:.38,sy:.38}]},
+        'skateboard':{'style1':[{x:0.415,y:0.4,sx:.2,sy:.2}]},
+        'socks':{'style1':[{x:0.22,y:0.22,sx:.26,sy:.26},{x:0.565,y:0.255,sx:.26,sy:.26}]},
+        'tshirt':{'style1':[{x:0.24,y:0.39,sx:.5,sy:.5}]},
+        'bottle':{'style1':[{x:0.34,y:0.4,sx:.3,sy:.5}]},
+        'cap':{'style1':[{x:0.32,y:0.24,sx:.35,sy:.35}]}},
 'travel':{'cup':{'style1':[{x:0.1,y:0.1,scale:1}]},
             'socks':{'style1':[{x:0.1,y:0.1,scale:1}]},
             'cup2':{'style1':[{x:0.1,y:0.1,scale:1}]},
