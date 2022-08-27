@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/avatar/static/css/main.b8c10ff0.css",
-    "main.js": "/avatar/static/js/main.c0a3bbdf.js",
+    "main.js": "/avatar/static/js/main.a1dce35a.js",
     "static/js/787.e5b7494a.chunk.js": "/avatar/static/js/787.e5b7494a.chunk.js",
     "static/media/schoolbag.png": "/avatar/static/media/schoolbag.03b61a6c05afb83743f8.png",
     "static/media/calendar.png": "/avatar/static/media/calendar.dfc026d325ab094d2a4e.png",
@@ -34,15 +34,14 @@
     "static/media/Cabin-Medium.ttf": "/avatar/static/media/Cabin-Medium.1256de63504888a7d9dc.ttf",
     "static/media/Cabin-Bold.ttf": "/avatar/static/media/Cabin-Bold.6d8418d109bed523706d.ttf",
     "static/media/folder-1.png": "/avatar/static/media/folder-1.a5e5df3c346694f6148d.png",
-    "static/media/head-01 copy.svg": "/avatar/static/media/head-01 copy.28f150d0a039a9310748a479536eb6c7.svg",
-    "static/media/head-01 copy 4.svg": "/avatar/static/media/head-01 copy 4.ad71f44e2b301fd1cbcbe3b49528bb87.svg",
-    "static/media/head-01 copy 7.svg": "/avatar/static/media/head-01 copy 7.a9d696083c2808ff1f4a4466ef232c45.svg",
+    "static/media/3-winning medals.svg": "/avatar/static/media/3-winning medals.28f150d0a039a9310748a479536eb6c7.svg",
+    "static/media/3-gulping.svg": "/avatar/static/media/3-gulping.ad71f44e2b301fd1cbcbe3b49528bb87.svg",
     "static/media/2-reading.svg": "/avatar/static/media/2-reading.4b6bc24a0c0f038c680851d46978ddbc.svg",
-    "static/media/head-01 copy 3.svg": "/avatar/static/media/head-01 copy 3.5b5c1a2a2648069f784cdc8f243f350d.svg",
-    "static/media/head-01 copy 6.svg": "/avatar/static/media/head-01 copy 6.de780d62a923a19f96cb156d9fd991e9.svg",
+    "static/media/3-feeling strong.svg": "/avatar/static/media/3-feeling strong.5b5c1a2a2648069f784cdc8f243f350d.svg",
+    "static/media/3-feeling energetic.svg": "/avatar/static/media/3-feeling energetic.de780d62a923a19f96cb156d9fd991e9.svg",
     "static/media/2-feeling sleepy.svg": "/avatar/static/media/2-feeling sleepy.93fbd687478ddaf1555681fadb39f94c.svg",
     "static/media/2-brain wave.svg": "/avatar/static/media/2-brain wave.8334fcacfd4b9913701d07c513919071.svg",
-    "static/media/head-01 copy 5.svg": "/avatar/static/media/head-01 copy 5.7426648078342f5b540de79c1b651f93.svg",
+    "static/media/3-swimming.svg": "/avatar/static/media/3-swimming.7426648078342f5b540de79c1b651f93.svg",
     "static/media/1-brainstorming.svg": "/avatar/static/media/1-brainstorming.12d21fd24d8bcf01ac1490a5e9e65d15.svg",
     "static/media/Device.svg": "/avatar/static/media/Device.895cc3f0b2d905a0466532d9a059dbb8.svg",
     "static/media/Gaming.svg": "/avatar/static/media/Gaming.0b83d5c5c5731db745a2614ce027139b.svg",
@@ -51,7 +50,7 @@
     "static/media/Explaining.svg": "/avatar/static/media/Explaining.2105bdc8fefbcf58c270adb68b4f15a6.svg",
     "static/media/2-full mark.svg": "/avatar/static/media/2-full mark.4e25405c0f0ce05d178140ff87b84511.svg",
     "static/media/1-slacking off.svg": "/avatar/static/media/1-slacking off.2f109f8e7b40901fd92ec01da1257be6.svg",
-    "static/media/head-01 copy 2.svg": "/avatar/static/media/head-01 copy 2.91c965c55e5994f313066d106b79a122.svg",
+    "static/media/3-feeling energetic accessory.svg": "/avatar/static/media/3-feeling energetic accessory.91c965c55e5994f313066d106b79a122.svg",
     "static/media/1-doing presentation.svg": "/avatar/static/media/1-doing presentation.6864d3790c042a657515336f88873b63.svg",
     "static/media/000003.svg": "/avatar/static/media/000003.1fae294449e86feeb1e2a59ab2d1f503.svg",
     "static/media/000002.svg": "/avatar/static/media/000002.5b6bb5be480e22e1170b461c0cd09903.svg",
@@ -63,11 +62,11 @@
     "static/media/Gym Shirt.svg": "/avatar/static/media/Gym Shirt.47287c55726370ee25b9561e070c735f.svg",
     "index.html": "/avatar/index.html",
     "main.b8c10ff0.css.map": "/avatar/static/css/main.b8c10ff0.css.map",
-    "main.c0a3bbdf.js.map": "/avatar/static/js/main.c0a3bbdf.js.map",
+    "main.a1dce35a.js.map": "/avatar/static/js/main.a1dce35a.js.map",
     "787.e5b7494a.chunk.js.map": "/avatar/static/js/787.e5b7494a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b8c10ff0.css",
-    "static/js/main.c0a3bbdf.js"
+    "static/js/main.a1dce35a.js"
   ]
 }
