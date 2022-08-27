@@ -20,13 +20,13 @@ import slackingOff from '../img/portrait/work/1-slacking off.svg'
 import waitingForLunch from '../img/portrait/work/1-waiting for lunch.svg'
 import workingOvertime from '../img/portrait/work/1-working overtime.svg'
 
-import sport_a1 from '../img/portrait/sports/head-01 copy.svg'
-import sport_a2 from '../img/portrait/sports/head-01 copy 2.svg'
-import sport_a3 from '../img/portrait/sports/head-01 copy 3.svg'
-import sport_a4 from '../img/portrait/sports/head-01 copy 4.svg'
-import sport_a5 from '../img/portrait/sports/head-01 copy 5.svg'
-import sport_a6 from '../img/portrait/sports/head-01 copy 6.svg'
-import sport_a7 from '../img/portrait/sports/head-01 copy 7.svg'
+import gulping from '../img/portrait/sports/3-gulping.svg'
+import swimming from '../img/portrait/sports/3-swimming.svg'
+import wiiningMedals from '../img/portrait/sports/3-winning medals.svg'
+import feelingEnergeticAccessory from '../img/portrait/sports/3-feeling energetic accessory.svg'
+import feelingEnergetic from '../img/portrait/sports/3-feeling energetic.svg'
+import feelingStrong from '../img/portrait/sports/3-feeling strong.svg'
+
 
 import cup from '../img/products/work/cup-1.png'
 import folder from '../img/products/work/folder-1.png'
@@ -85,13 +85,13 @@ import cap from '../img/products/sports/cap.png'
 var canvasW=1500
 var versionn='1'
 var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
-var headp=[0.233,0.055,0.58,.58]
+var headp=[0.2,0.0,0.66,.66]
 var peepsp=[.05,0.02,1,1]
 var ProductsList={
 'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
 'study':{'cardholder':{'pic':cardholder},'folder':{'pic':folderS},'pencilcase':{'pic':pencilcase},
 'schoolbag':{'pic':schoolbag},'notebook':{'pic':notebookS},'bag':{'pic':bag},'calendar':{'pic':calendar}},
-'sport':{'equipmentbag':{'pic':equipmentbag},'hoody':{'pic':hoody},'skateboard':{'pic':skateboard},'socks':{'pic':socks},
+'sport':{'equipment bag':{'pic':equipmentbag},'hoody':{'pic':hoody},'skateboard':{'pic':skateboard},'socks':{'pic':socks},
     'tshirt':{'pic':tshirt},'bottle':{'pic':bottle},'cap':{'pic':cap}},
 
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
@@ -104,7 +104,7 @@ var ProductsListO={
     'laptop':{'pic':laptopO},'notebook':{'pic':notebookO},'usb':{'pic':usbO},'mousePad':{'pic':mousePadO}},
 'study':{'cardholder':{'pic':cardholderO},'folder':{'pic':folderSO},'pencilcase':{'pic':pencilcaseO},
 'schoolbag':{'pic':schoolbagO},'notebook':{'pic':notebookSO},'bag':{'pic':bagO},'calendar':{'pic':calendarO}},
-'sport':{'equipmentbag':{'pic':equipmentbagO},'hoody':{'pic':hoodyO},'skateboard':{'pic':skateboardO},'socks':{'pic':socksO},
+'sport':{'equipment bag':{'pic':equipmentbagO},'hoody':{'pic':hoodyO},'skateboard':{'pic':skateboardO},'socks':{'pic':socksO},
     'tshirt':{'pic':tshirtO},'bottle':{'pic':bottleO},'cap':{'pic':capO}},
 
 'travel':{'cup':{'pic':cup},'socks':{'pic':socks},'cup2':{'pic':cup},'tshirt':{'pic':tshirt},'tshirt2':{'pic':tshirt},'socks2':{'pic':socks}},
@@ -116,9 +116,9 @@ var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pi
 'reading':{'pic':reading},'zoningOut':{'pic':zoningOut}},
 'work':{'brainstorming':{'pic':brainstorming},'doingPresentation':{'pic':doPre},
 'slackingOff':{'pic':slackingOff},'waitingForLunch':{'pic':waitingForLunch},'workingOverTime':{'pic':workingOvertime}},
-'sport':{'peep1':{'pic':sport_a1},
-//'peep2':{'pic':sport_a2},
-'peep3':{'pic':sport_a3},'peep4':{'pic':sport_a4},'peep5':{'pic':sport_a5},'peep6':{'pic':sport_a6},
+'sport':{'peep1':{'pic':gulping},
+'peep2':{'pic':swimming},
+'peep3':{'pic':wiiningMedals},'peep4':{'pic':feelingEnergetic,'pic_a':feelingEnergeticAccessory},'peep5':{'pic':feelingStrong},
 //'peep7':{'pic':sport_a7}
 },
 'travel':{'peep1':{'pic':device},'peep2':{'pic':dress},'peep3':{'pic':paper},'peep4':{'pic':gymShirt}},
@@ -145,7 +145,7 @@ var StyleBarList={'study':{
         'laptop':{'style1':[{x:0.6,y:0.52,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.62,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.25,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16}]},
         'notebook':{'style1':[{x:0.18,y:0.57,sx:0.3,sy:0.25,tx:.25,degree:-Math.PI*7/30}]},
         'usb':{'style1':[{x:0.55,y:0.37,sx:.22,sy:.22,degree:-Math.PI/20}]}},
-'sport':{'equipmentbag':{'style1':[{x:0.31,y:0.25,sx:.33,sy:.52}]},
+'sport':{'equipment bag':{'style1':[{x:0.31,y:0.25,sx:.33,sy:.52}]},
         'hoody':{'style1':[{x:0.31,y:0.38,sx:.38,sy:.38}]},
         'skateboard':{'style1':[{x:0.415,y:0.4,sx:.2,sy:.2}]},
         'socks':{'style1':[{x:0.22,y:0.22,sx:.26,sy:.26},{x:0.565,y:0.255,sx:.26,sy:.26}]},

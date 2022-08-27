@@ -102,6 +102,12 @@ class StyleBar extends Component{
             var imgObj3=new Image()
             imgObj3.src=s.state.peeps
             ctx2.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
+            if(PortraitBarList[s.state.scenario1][s.state.portrait]['pic_a']){
+              var imgObj6=new Image()
+              imgObj6.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic_a']
+              ctx2.drawImage(imgObj6,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);
+            }
+           
             ctx2.setTransform()
             //console.log(imgObj2,imgObj3)
         }
@@ -255,7 +261,21 @@ class PortraitBar extends Component{
       console.log(headp)
       headpram+=`matrix(${headp[2]},${0},${0},${headp[3]},${headp[0]*0},${headp[1]*0})`
       peepspram+=`matrix(${peepsp[2]},${0},${0},${peepsp[3]},${peepsp[0]*350},${peepsp[1]*350})`
-    return(<div key={index+'sssu'} style={{position:'absolute',left:0+'px',top:0+'px',transform:totalpram}}>
+      if(PortraitBarList[this.state.scenario1][this.state.portrait]['pic_a']){
+        return(<div key={index+'sssu'} style={{position:'absolute',left:0+'px',top:0+'px',transform:totalpram}}>
+      <div style={{position:'absolute',left:350*peepsp[0]+'px',top:350*peepsp[1]+'px'}}>
+      <img  style={{position:'absolute',left:0+'px',top:0+'px'}} width={350*peepsp[2]} height={350*peepsp[3]} src={PortraitBarList[this.state.scenario1][this.state.portrait]['pic']} alt='loading failed' />
+      </div>
+      <div style={{position:'absolute',left:350*headp[0]+'px',top:350*headp[1]+'px'}}>
+      <img  style={{position:'absolute',left:0+'px',top:0+'px'}}src={this.state.peeps} alt='loading failed' width={350*headp[2]} height={350*headp[3]}/>
+      </div>
+      <div style={{position:'absolute',left:350*peepsp[0]+'px',top:350*peepsp[1]+'px'}}>
+      <img  style={{position:'absolute',left:0+'px',top:0+'px'}} width={350*peepsp[2]} height={350*peepsp[3]} src={PortraitBarList[this.state.scenario1][this.state.portrait]['pic_a']} alt='loading failed' />
+      </div>
+    
+  </div>)
+      }
+      return(<div key={index+'sssu'} style={{position:'absolute',left:0+'px',top:0+'px',transform:totalpram}}>
       <div style={{position:'absolute',left:350*peepsp[0]+'px',top:350*peepsp[1]+'px'}}>
       <img  style={{position:'absolute',left:0+'px',top:0+'px'}} width={350*peepsp[2]} height={350*peepsp[3]} src={PortraitBarList[this.state.scenario1][this.state.portrait]['pic']} alt='loading failed' />
       </div>
@@ -272,12 +292,12 @@ class PortraitBar extends Component{
     var basex=0;var basey=0;
     for(let i in Portrait){
       if(this.state.scenario1 )
-      {barlist.push([i,Portrait[i]['pic'],t,basex,basey+t*180])}
+      {barlist.push([i,Portrait[i]['pic'],t,basex,basey+t*180,Portrait[i]['pic_a']])}
       else{barlist.push([i,0,t,basex,basey+t*180])}
       t+=1
     }
     
-    var dddiv=barlist.map((item,index)=><ScenarioButton2 key={index} headp={headp} peepsp={peepsp} head={this.state.peeps} transscenario2={this.props.transportrait} E={0} id={item[0]} l={150}x={item[3]} y={item[4]} peeps={item[1]} style={(item[0]===this.state.portrait)?1:0}></ScenarioButton2>)
+    var dddiv=barlist.map((item,index)=><ScenarioButton2 key={index} headp={headp} a={item[5]} peepsp={peepsp} head={this.state.peeps} transscenario2={this.props.transportrait} E={0} id={item[0]} l={150}x={item[3]} y={item[4]} peeps={item[1]} style={(item[0]===this.state.portrait)?1:0}></ScenarioButton2>)
     if(this.state.scenario1 && !this.state.scenario2){
       return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
