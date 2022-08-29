@@ -166,40 +166,39 @@ class StyleBar extends Component{
     var ddddiv=barlist.map((item,index)=><StyleButton id={item[0]} transtyle={this.props.transtyle} style={item[0]===this.state.style?1:0} key={item[0]} text={item[0]} x={item[3]} y={item[4]} l={159} n={58} t={11+'px'}></StyleButton>)
     if(this.state.style){//var sssv=StyleBarList[this.state.scenario1][this.state.scenario2]
       return (<div>
-        <div className='stylebarbar' >
-        {ddddiv}
-        </div>
-        <div style={{position:"absolute",width:617,height:509,left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
+        
+        <div style={{position:"absolute",width:825,height:509,left: '353px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
         
         
         
-        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef2 = ref;}}>
      </canvas>
-     <canvas id='stylebarcanvas2' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     <canvas id='stylebarcanvas2' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef1 = ref;}}>
      </canvas>
-     <canvas id='stylebarcanvas3' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     <canvas id='stylebarcanvas3' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef3 = ref;}}>
      </canvas>
-     <canvas id='stylebarcanvas4' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 58,top: 4,background: '#FFFFFF',
+     <canvas id='stylebarcanvas4' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef4 = ref;}}>
      </canvas>
         
         
 
+        </div><div className='stylebarbar' >
+        {ddddiv}
         </div>
       </div>)}
       //PortraitBarList[this.state.scenario1][this.state.scenario2]['pic']
     else{return (<div>
-      <div className='stylebarbar' >
+      
+      <div style={{position: 'absolute',width: '825px',height: '509px',left: '353px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
+   }}>
+
+   </div><div className='stylebarbar' >
       {ddddiv}
       </div>
-      <div style={{position: 'absolute',width: '617px',height: '509px',left: '542px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
-   }}>
-    <div style={{position:'absolute',left:87,top:32,width:443,height:437}}>
-    </div>
-   </div>
     </div>)}
     } 
 }
