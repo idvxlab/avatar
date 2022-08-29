@@ -83,15 +83,17 @@ class StyleBar extends Component{
      var tickf=(s)=> {
       var canvaswidth=canvasW
       var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
+      var isMul=(ProductsListO[s.state.scenario1][s.state.scenario2]['isMul']!==undefined)?ProductsListO[s.state.scenario1][s.state.scenario2]['isMul']:1
+        console.log('isMul',isMul)
       //console.log((ProductsListO[s.state.scenario1][s.state.scenario2]['pic'] &&PortraitBarList[s.state.scenario1][s.state.portrait]['pic']&& s.state.peeps))
       if(s.canvasRef1 && s.canvasRef2 && s.canvasRef3){
-        var s1=new Date();
           var ctx2=s.canvasRef2.getContext('2d')
           ctx2.clearRect(0,0,canvaswidth,canvaswidth)
           for(let ii in stylepram){
             var i=stylepram[ii]
-            var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0}
+            var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0,isMul:i.isMul?i.isMul:1}
             //ctx.rotate(parmi.degree)
+            
             ctx2.transform(1,0,0,1,parmi.e,parmi.f)
             ctx2.rotate(parmi.degree)
             //parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy
@@ -124,14 +126,19 @@ class StyleBar extends Component{
         //console.log(this.state.peepsData===peepsData.data)
         this.setState({imageData:imageData.data})
         //console.log(this.state.peepsData,this.state.imageData)
-        if(this.state.imageData && this.state.peepsData){
-         // console.log('init')
-          for (var i=0;i<imageData.data.length;i+=1)
-          {
-            imageData.data[i]=imageData.data[i]*peepsData.data[i]/255;
+        if(isMul){
+          if(this.state.imageData && this.state.peepsData){
+            for (var i=0;i<imageData.data.length;i+=1)
+            {
+              imageData.data[i]=imageData.data[i]*peepsData.data[i]/255;
+            }
+            ctx.putImageData(imageData,0,0)
           }
-          ctx.putImageData(imageData,0,0)
         }
+        else{if(this.state.imageData && this.state.peepsData){
+          
+          ctx.putImageData(peepsData,0,0)
+        }}
           var ctx3=s.canvasRef3.getContext('2d')
           var imgObj4=new Image()
           imgObj4.src=s.canvasRef1.toDataURL()
@@ -228,6 +235,8 @@ class PortraitBar extends Component{
     return {scenario1:props.scenario1,scenario2:props.scenario2,portrait:props.portrait};
   }
   render(){
+    var isMul=(ProductsListO[this.state.scenario1][this.state.scenario2]['isMul']!==undefined)?ProductsListO[this.state.scenario1][this.state.scenario2]['isMul']:1
+    console.log(isMul,ProductsListO[this.state.scenario1][this.state.scenario2]['isMul'])
     var stylepram=StyleBarList[this.state.scenario1][this.state.scenario2]['style1']
     var dddddiv=stylepram.map((item,index)=>{
       var headpram='',peepspram='',totalpram=''
@@ -313,8 +322,8 @@ class PortraitBar extends Component{
     else if(this.state.scenario1 && this.state.scenario2 && this.state.portrait){
       return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
-      <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:'multiply'}}><img src={ProductsListO[this.state.scenario1][this.state.scenario2]['pic']} alt='no way' width={350+'px'} height={350+'px'}/></div>
-      <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:'multiply'}}>
+      <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:isMul?'multiply':'normal'}}><img src={ProductsListO[this.state.scenario1][this.state.scenario2]['pic']} alt='loading failed' width={350+'px'} height={350+'px'}/></div>
+      <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:isMul?'multiply':'normal'}}>
         {dddddiv}
         </div>
       <div style={{position: 'absolute',width: '100%',height:'60px',textAlign:'center',top: '425px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '40px',lineHeight: '60px',color:'#4D59BF'
