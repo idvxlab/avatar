@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import '../../font/Cabin,Poppins/index.css'
 import './uploadbroad.css'
 import { $ } from "jquery";
-import camera from '../../img/camera2.png'
+
 import axios from 'axios'
 import { url } from "../../page/variable";
 class Video1 extends Component{

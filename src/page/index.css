@@ -114,6 +114,26 @@ color: #4D59BF;
 
 
   }
+  .nextButton1TextG{
+    /* Next */
+
+position: absolute;
+width: 71px;
+height: 48px;
+left: 825px;
+top: 796px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height */
+
+color: #929292;
+
+
+  }
   .backButton1Text{
     /* Next */
 

@@ -483,7 +483,7 @@ render(){
     </div>
         </div>
     </div>
-    
+    <div ><div className='nextButton1TextG'>Next</div><NextButton1 c={'g'}></NextButton1></div>
       </div>
       <Loading x={0} y={0} ></Loading></div>)
   }else{
@@ -516,7 +516,7 @@ render(){
 <path d="M30.952 21.1603L38.6572 21.3342L38.0103 13.7696" stroke="white" strokeWidth="3" strokeLinecap="round"/>
 </svg>
 
-        <div onClick={(()=>{this.toProgress(2)})}><div className='nextButton1Text'>Next</div><NextButton1></NextButton1></div>
+<div onClick={(()=>{this.toProgress(2)})}><div className='nextButton1Text'>Next</div><NextButton1 c={'b'}></NextButton1></div>
       </div>
       <Loading x={0} y={0} ></Loading></div>)
   } 

@@ -1,1 +1,1 @@
-Test
+Project of selfAvatar
