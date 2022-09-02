@@ -344,7 +344,7 @@ class PortraitBar extends Component{
 export default class BackBroad extends Component {
     constructor(props){
         super(props)
-        this.state={progress:1,pic:0,picmode:0,peeps1:svg1,peeps2:svg2,peeps3:svg3,peeps4:svg4,scenario1:'work',scenario2:'cup',portrait:'brainstorming',style:'style1',iscanvas:0}
+        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:'work',scenario2:'cup',portrait:'brainstorming',style:'style1',iscanvas:0}
         this.toProgress = this.toProgress.bind(this);
         this.transpic=this.transpic.bind(this)
         this.transscenario1=this.transscenario1.bind(this)

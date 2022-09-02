@@ -35,6 +35,13 @@ import slouching from '../img/portrait/home/slouching.svg'
 import wateringFlowers from '../img/portrait/home/watering flowers.svg'
 import wolfingDown from '../img/portrait/home/wolfing down.svg'
 
+import gaspingAc from '../img/portrait/outdoor/gasping accessory.svg'
+import gasping from '../img/portrait/outdoor/gasping.svg'
+import goingHiking from '../img/portrait/outdoor/going hiking.svg'
+import packingUp from '../img/portrait/outdoor/packing up.svg'
+import sunBlocking from '../img/portrait/outdoor/sun blocking.svg'
+import takingPhotos from '../img/portrait/outdoor/taking photos.svg'
+
 import cupH from '../img/products/home/cup.png'
 import coastar from '../img/products/home/coaster.png'
 import earphoneShell from  '../img/products/home/earphone shell.png'
@@ -117,6 +124,21 @@ import postcardO from '../img/products/gift/O/postcard.png'
 import stickerO from '../img/products/gift/O/sticker.png'
 import tshirtGO from '../img/products/gift/O/tshirt.png'
 
+import bagOt from '../img/products/outdoor/bag.png'
+import capOt from '../img/products/outdoor/cap.png'
+import keyRingOt from '../img/products/outdoor/key ring.png'
+import lunchboxOt from '../img/products/outdoor/lunchbox.png'
+import suitcaseOt from '../img/products/outdoor/suitcase.png'
+import tshirtOt from '../img/products/outdoor/tshirt.png'
+import umbrellaOt from '../img/products/outdoor/umbrella.png'
+
+import bagOtO from '../img/products/outdoor/O/bag.png'
+import capOtO from '../img/products/outdoor/O/cap.png'
+import keyRingOtO from '../img/products/outdoor/O/key ring.png'
+import lunchboxOtO from '../img/products/outdoor/O/lunchbox.png'
+import suitcaseOtO from '../img/products/outdoor/O/suitcase.png'
+import tshirtOtO from '../img/products/outdoor/O/tshirt.png'
+import umbrellaOtO from '../img/products/outdoor/O/umbrella.png'
 //var url='http://202.120.165.128:5000/service/avatar'
 var canvasW=1500
 var versionn='1'
@@ -133,8 +155,8 @@ var ProductsList={
     'fridge magnet':{'pic':fridgeMangnet},'pillow':{'pic':pillow},'plate':{'pic':plate},'storage box':{'pic':storageBox}},
     'gift':{'badge':{'pic':badge},'key ring':{'pic':keyRing},'mobile phone shell':{'pic':mobilePhoneShell},
     'pillow':{'pic':pillowG},'postcard':{'pic':postcard},'sticker':{'pic':sticker},'tshirt':{'pic':tshirtG}},
-'outdoor':{'coaster':{'pic':coastar},'cup':{'pic':cupH},'earphone shell':{'pic':earphoneShell},
-    'fridge magnet':{'pic':fridgeMangnet},'pillow':{'pic':pillow},'plate':{'pic':plate},'storage box':{'pic':storageBox}},
+    'outdoor':{'bag':{'pic':bagOt},'cap':{'pic':capOt},'key ring':{'pic':keyRingOt},
+    'lunchbox':{'pic':lunchboxOt},'suitcase':{'pic':suitcaseOt},'tshirt':{'pic':tshirtOt},'umbrella':{'pic':umbrellaOt}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
 
@@ -149,13 +171,13 @@ var ProductsListO={
     'fridge magnet':{'pic':fridgeMangnetO},'pillow':{'pic':pillowO},'plate':{'pic':plateO},'storage box':{'pic':storageBoxO}},
 'gift':{'badge':{'pic':badgeO},'key ring':{'pic':keyRingO},'mobile phone shell':{'pic':mobilePhoneShellO},
     'pillow':{'pic':pillowGO},'postcard':{'pic':postcardO},'sticker':{'pic':stickerO},'tshirt':{'pic':tshirtGO}},
-'outdoor':{'coaster':{'pic':coastarO},'cup':{'pic':cupHO},'earphone shell':{'pic':earphoneShellO},
-    'fridge magnet':{'pic':fridgeMangnetO},'pillow':{'pic':pillowO},'plate':{'pic':plateO},'storage box':{'pic':storageBoxO}},
+    'outdoor':{'bag':{'pic':bagOtO},'cap':{'pic':capOtO},'key ring':{'pic':keyRingOtO},
+    'lunchbox':{'pic':lunchboxOtO},'suitcase':{'pic':suitcaseOtO},'tshirt':{'pic':tshirtOtO},'umbrella':{'pic':umbrellaOtO}},
     0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
 
 var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pic':feelingSleepy},'fullMark':{'pic':fullMark},
-'reading':{'pic':reading},'zoningOut':{'pic':zoningOut}},
+'reading':{'pic':reading,'pic_a':reading},'zoningOut':{'pic':zoningOut}},
 'work':{'brainstorming':{'pic':brainstorming},'doingPresentation':{'pic':doPre},
 'slackingOff':{'pic':slackingOff},'waitingForLunch':{'pic':waitingForLunch},'workingOverTime':{'pic':workingOvertime}},
 'sport':{'peep1':{'pic':gulping},
@@ -165,22 +187,19 @@ var PortraitBarList={'study':{'brainWave':{'pic':brainWave},'feelingSleepy':{'pi
 },
 'home':{'peep1':{'pic':coffeeTime},'peep2':{'pic':enjoyingMusic,'pic_a':enjoyingMusicAccessory},'peep3':{'pic':slouching},'peep4':{'pic':wateringFlowers},'peep5':{'pic':wolfingDown}},
 'gift':{'peep1':{'pic':celebration,'pic_a':celebrationAccessory},'peep2':{'pic':handHeart},'peep3':{'pic':happyBirthday},'peep4':{'pic':trickyGift},'peep5':{'pic':yee}},
-'outdoor':{'peep1':{'pic':coffeeTime},'peep2':{'pic':enjoyingMusic,'pic_a':enjoyingMusicAccessory},'peep3':{'pic':slouching},'peep4':{'pic':wateringFlowers},'peep5':{'pic':wolfingDown}},
+'outdoor':{'peep1':{'pic':goingHiking},'peep2':{'pic':gasping,'pic_a':gaspingAc},'peep3':{'pic':packingUp},'peep4':{'pic':sunBlocking},'peep5':{'pic':takingPhotos}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
 var StyleBarList={'study':{
-        'cardholder':{'style1':[{x:0.25,y:0.5,sx:0.34,sy:0.43,degree:-.9,ty:.29}],
-                                        'style2':[{x:0.5,y:0.5,sx:0.2,sy:0.2,degree:-0.1}]},
-          'bag':{'style1':[{x:0.23,y:0.33,sx:.56,sy:.56}],'style2':[{x:0.4,y:0.18,scale:.25,rotate:Math.PI/4},{x:0.8,y:0.18,scale:.25}]},
+        'cardholder':{'style1':[{x:0.25,y:0.5,sx:0.34,sy:0.43,degree:-.9,ty:.29}],},
+          'bag':{'style1':[{x:0.23,y:0.33,sx:.56,sy:.56}],},
           'notebook':{'style1':[{x:0.18,y:0.57,sx:0.3,sy:0.25,tx:.25,degree:-Math.PI*7/30}]},
           'folder':{'style1':[{x:0.3,y:0.42,sx:0.35,sy:0.35,tx:.15,ty:.0,degree:-Math.PI*3.5/20}]},
           'pencilcase':{'style1':[{x:0.07,y:0.37,sx:.5,sy:.26}]},
           'calendar':{'style1':[{x:.24,y:0.18,sx:0.43,sy:.43,ty:.12,degree:.08}]},
           'schoolbag':{'style1':[{x:0.2,y:0.27,sx:0.5,sy:0.5}]}},
 
-'work':{'cup':{'style1':[{x:0.25,y:0.3,sx:0.4,sy:0.4,degree:0},],
-                'style2':[{x:0.3,y:0.3,sx:0.15,sy:0.22,ty:0.2},{x:0.45,y:0.56,sx:0.15,sy:0.22,ty:-0.1,degree:0},
-                    {x:0.5,y:0.26,sx:0.15,sy:0.22,ty:-0.2,degree:0}]},
+'work':{'cup':{'style1':[{x:0.25,y:0.3,sx:0.4,sy:0.4,degree:0},],},
         'mousePad':{'style1':[
             {x:0.14,y:0.25,sx:0.5,sy:0.5}]},
         'folder':{'style1':[{x:0.3,y:0.42,sx:0.35,sy:0.35,tx:.15,ty:.0,degree:-Math.PI*3.5/20}]},
@@ -209,13 +228,13 @@ var StyleBarList={'study':{
         'postcard':{'style1':[{x:0.12,y:0.58,sx:.36,sy:.36,degree:-.85}]},
         'sticker':{'style1':[{x:0.54,y:0.36,sx:.33,sy:.33}]},
         'tshirt':{'style1':[{x:0.24,y:0.39,sx:.5,sy:.5}]}},
-'outdoor':{'coaster':{'style1':[{x:0.10,y:0.3,sx:.3,sy:.3},{x:0.56,y:0.3,sx:.3,sy:.3}]},
-'cup':{'style1':[{x:0.18,y:0.31,sx:.42,sy:.42}]},
-'earphone shell':{'style1':[{x:0.25,y:0.5,sx:.32,sy:.32,tx:.25,degree:-.65}]},
-'fridge magnet':{'style1':[{x:0.25,y:0.27,sx:.45,sy:.45}]},
-'pillow':{'style1':[{x:0.17,y:0.2,sx:.6,sy:.6}]},
-'plate':{'style1':[{x:0.26,y:0.3,sx:.4,sy:.4}]},
-'storage box':{'style1':[{x:0.38,y:0.16,sx:.25,sy:.25,tx:-.45,degree:.53}]}},
+'outdoor':{'bag':{'style1':[{x:0.23,y:0.33,sx:.54,sy:.54}],},
+'cap':{'style1':[{x:0.32,y:0.24,sx:.35,sy:.35}]},
+'key ring':{'style1':[{x:0.34,y:0.59,sx:.28,sy:.28}]},
+'lunchbox':{'style1':[{x:0.34,y:0.42,sx:0.28,sy:0.235}]},
+'suitcase':{'style1':[{x:0.31,y:0.34,sx:.4,sy:.4}]},
+'tshirt':{'style1':[{x:0.24,y:0.39,sx:.5,sy:.5}]},
+'umbrella':{'style1':[ {x:0.42,y:0.31,sx:.25,sy:.25,tx:-.25,degree:.63},{x:0.745,y:0.51,sx:.07,sy:.25,tx:.39,degree:-.3}]}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
 export{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn,canvasW,ProductsListO}
