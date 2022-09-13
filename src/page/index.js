@@ -582,7 +582,7 @@ render(){
             <div className='text6' >Select your product</div>
             <div className='text7' >Change the style</div>
             <div className='page'>
-            <div style={{/* Select a scenario and product */position: 'absolute',width: '360px',height: '71px',left: '740px',top: '188px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
+            <div style={{/* Select a scenario and product */position: 'absolute',width: '360px',height: '71px',left: '670px',top: '188px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
     }}>Select a style</div>
     <StyleBar peeps={this.state.peeps1} iscanvas={0} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
     <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
