@@ -14,7 +14,7 @@ import ScenarioButton2 from "../componet/meta/scenariobutton2";
 import StyleButton from "../componet/meta/stylebutton";
 import Loading from "../componet/meta/loading";
 import axios from 'axios'
-import{ProductsList,ProductsListO,StyleBarList,PortraitBarList,url,headp,peepsp,canvasW,svg1,svg2,svg3,svg4} from "./variable";
+import{ProductsList,ProductsListO,StyleBarList,PortraitBarList,url,headp,peepsp,canvasW,svg1,svg2,svg3,svg4, test_mode} from "./variable";
 
 
 class Scenariobar extends Component{
@@ -73,7 +73,7 @@ class StyleBar extends Component{
   componentDidMount() {
     this.timerID = setInterval(
       ()=>{this.tick()},
-      300
+      500
     );
   }
   componentWillUnmount() {
@@ -84,7 +84,7 @@ class StyleBar extends Component{
       var canvaswidth=canvasW
       var stylepram=StyleBarList[s.state.scenario1][s.state.scenario2][s.state.style]
       var isMul=(ProductsListO[s.state.scenario1][s.state.scenario2]['isMul']!==undefined)?ProductsListO[s.state.scenario1][s.state.scenario2]['isMul']:1
-        console.log('isMul',isMul)
+        //console.log('isMul',isMul)
       //console.log((ProductsListO[s.state.scenario1][s.state.scenario2]['pic'] &&PortraitBarList[s.state.scenario1][s.state.portrait]['pic']&& s.state.peeps))
       if(s.canvasRef1 && s.canvasRef2 && s.canvasRef3){
           var ctx2=s.canvasRef2.getContext('2d')
@@ -235,7 +235,7 @@ class PortraitBar extends Component{
   }
   render(){
     var isMul=(ProductsListO[this.state.scenario1][this.state.scenario2]['isMul']!==undefined)?ProductsListO[this.state.scenario1][this.state.scenario2]['isMul']:1
-    console.log(isMul,ProductsListO[this.state.scenario1][this.state.scenario2]['isMul'])
+    //console.log(isMul,ProductsListO[this.state.scenario1][this.state.scenario2]['isMul'])
     var stylepram=StyleBarList[this.state.scenario1][this.state.scenario2]['style1']
     var dddddiv=stylepram.map((item,index)=>{
       var headpram='',peepspram='',totalpram=''
@@ -266,7 +266,7 @@ class PortraitBar extends Component{
       e=parmi.e
       f=parmi.f
       totalpram+=`matrix(${a},${b},${c},${d},${e},${f})`
-      console.log(headp)
+      //console.log(headp)
       headpram+=`matrix(${headp[2]},${0},${0},${headp[3]},${headp[0]*0},${headp[1]*0})`
       peepspram+=`matrix(${peepsp[2]},${0},${0},${peepsp[3]},${peepsp[0]*350},${peepsp[1]*350})`
       if(PortraitBarList[this.state.scenario1][this.state.portrait]['pic_a']){
@@ -344,7 +344,12 @@ class PortraitBar extends Component{
 export default class BackBroad extends Component {
     constructor(props){
         super(props)
-        this.state={progress:1,pic:0,picmode:0,peeps1:0,peeps2:0,peeps3:0,peeps4:0,scenario1:'work',scenario2:'cup',portrait:'brainstorming',style:'style1',iscanvas:0}
+        this.state={progress:1,pic:0,picmode:0,
+          //peeps1:svg1?(test_mode==='test'):0,peeps2:svg2?(test_mode==='test'):0,
+          //peeps3:svg3?(test_mode==='test'):0,peeps4:svg4?(test_mode==='test'):0,
+          peeps1:test_mode?svg1:0,peeps2:test_mode?svg2:0,
+        peeps3:test_mode?svg3:0,peeps4:test_mode?svg4:0,
+        scenario1:'work',scenario2:'cup',portrait:'brainstorming',style:'style1',iscanvas:0}
         this.toProgress = this.toProgress.bind(this);
         this.transpic=this.transpic.bind(this)
         this.transscenario1=this.transscenario1.bind(this)
@@ -361,6 +366,7 @@ export default class BackBroad extends Component {
       var transpeeps=[(p1,p2,p3,p4,t)=>{t.setState({peeps1:p1,peeps2:p2,peeps3:p3,peeps4:p4})},this]
       document.getElementsByClassName('loading')[0].style.display='block'
       const f1=async()=>{
+        console.log(url)
           function getBase64(file) {
               return new Promise((resolve, reject) => {
                   const reader = new FileReader()
@@ -373,7 +379,7 @@ export default class BackBroad extends Component {
               var res=await axios({
                   url: url,
                   method: "post",
-                  data: {'pic':pic,'num':3},
+                  data: {'pic':pic,'mode':'refresh'},
                 })
                 var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
                 var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
@@ -451,7 +457,7 @@ transpeeps(peeps1,peeps2,peeps3,peeps4){
       var s1= {peeps1:b,peeps2:this.state.peeps2,peeps3:this.state.peeps3,peeps4:a}
       this.setState(s1);}
 render(){
-  console.log(this.state)
+  //console.log(this.state)
   if(this.state.progress===1){if(!this.state.peeps1){
     return (
       <div>
@@ -586,7 +592,7 @@ render(){
     }}>Select a style</div>
     <StyleBar peeps={this.state.peeps1} iscanvas={0} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
     <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
-    <div onClick={(()=>{console.log(1);let data = document.getElementById('stylebarcanvas4').toDataURL();
+    <div onClick={(()=>{let data = document.getElementById('stylebarcanvas4').toDataURL();
     const a_link = document.createElement('a');
     fetch(data)    // 括号里是文件链接
     .then((res) => res.blob())

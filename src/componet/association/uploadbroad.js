@@ -127,7 +127,7 @@ export default class UploadBroad extends Component {
                         //'Content-Type': 'application/x-www-form-urlencoded',
                         //"Content-Security-Policy": "upgrade-insecure-requests"
                     //},
-                    data: {'pic':pic,'num':4},
+                    data: {'pic':pic,'mode':'generate'},
                   })
                   var data1='data:image/svg+xml;base64,'+String(res.data.message[0]);
                   var data2='data:image/svg+xml;base64,'+String(res.data.message[1]);
