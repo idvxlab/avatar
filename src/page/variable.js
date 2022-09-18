@@ -144,7 +144,7 @@ var canvasW=1500
 var versionn='1'
 //
 //var url='http://202.120.165.128:5000/service/avatar'
-var test_mode=1
+var test_mode=0
 var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.2,0.0,0.66,.66]
 var peepsp=[.05,0.02,1,1]
@@ -202,7 +202,8 @@ var StyleBarList={
             'style2':[{x:0.14,y:0.63,sx:0.15,sy:0.15}]},
         'folder':{'style1':[{x:0.3,y:0.42,sx:0.35,sy:0.35,tx:.15,ty:.0,degree:-Math.PI*3.5/20}],
                     'style2':[{x:0.57,y:0.4,sx:0.15,sy:0.15,tx:.15,ty:.0,degree:-Math.PI*3.5/20}]},
-        'lunchbox':{'style1':[{x:0.34,y:0.42,sx:0.28,sy:0.235}],'style2':[{x:0.44,y:0.48,sx:0.11,sy:0.09}]},
+        'lunchbox':{'style1':[{x:0.34,y:0.42,sx:0.28,sy:0.235}],
+            'style2':[{x:0.44,y:0.48,sx:0.11,sy:0.09}]},
         'laptop':{'style1':[{x:0.6,y:0.52,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.62,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16},{x:0.25,y:0.3,sx:0.21,sy:0.21,degree:2*Math.PI/16}],
                     'style2':[{x:0.4,y:0.54,sx:0.11,sy:0.11,tx:.15,ty:.0,degree:2*Math.PI/16}]},
         'notebook':{'style1':[{x:0.18,y:0.57,sx:0.3,sy:0.25,tx:.25,degree:-Math.PI*7/30}]},
