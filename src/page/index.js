@@ -87,8 +87,31 @@ class StyleBar extends Component{
         //console.log('isMul',isMul)
       //console.log((ProductsListO[s.state.scenario1][s.state.scenario2]['pic'] &&PortraitBarList[s.state.scenario1][s.state.portrait]['pic']&& s.state.peeps))
       if(s.canvasRef1 && s.canvasRef2 && s.canvasRef3){
+          var ctxbase=s.canvasRefbase.getContext('2d')
+          ctxbase.clearRect(0,0,canvaswidth,canvaswidth)
+          var parmi={sx:1,tx:0,sy:1,ty:0,e:0,f:0,degree:0,isMul:1}
+            //ctx.rotate(parmi.degree)
+            
+          ctxbase.transform(1,0,0,1,parmi.e,parmi.f)
+          ctxbase.rotate(parmi.degree)
+            //parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy
+          ctxbase.transform(parmi.sx,parmi.sy*parmi.ty,parmi.sx*parmi.tx,parmi.sy,0,0)
+          var imgObj2=new Image()
+          imgObj2.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic']
+          ctxbase.drawImage(imgObj2,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);
+          var imgObj3=new Image()
+          imgObj3.src=s.state.peeps
+          ctxbase.drawImage(imgObj3,0+headp[0]*canvaswidth,0+headp[1]*canvaswidth,headp[2]*canvaswidth,headp[3]*canvaswidth);
+          if(PortraitBarList[s.state.scenario1][s.state.portrait]['pic_a']){
+            var imgObj6=new Image()
+            imgObj6.src=PortraitBarList[s.state.scenario1][s.state.portrait]['pic_a']
+            ctxbase.drawImage(imgObj6,0+peepsp[0]*canvaswidth,0+peepsp[1]*canvaswidth,peepsp[2]*canvaswidth,peepsp[3]*canvaswidth);}
+
+
+
           var ctx2=s.canvasRef2.getContext('2d')
           ctx2.clearRect(0,0,canvaswidth,canvaswidth)
+          
           for(let ii in stylepram){
             var i=stylepram[ii]
             var parmi={sx:i.sx?i.sx:1,tx:i.tx?i.tx:0,sy:i.sy?i.sy:1,ty:i.ty?i.ty:0,e:i.x?i.x*canvaswidth:0,f:i.y?i.y*canvaswidth:0,degree:i.degree?i.degree:0,isMul:i.isMul?i.isMul:1}
@@ -167,20 +190,22 @@ class StyleBar extends Component{
     if(this.state.style){//var sssv=StyleBarList[this.state.scenario1][this.state.scenario2]
       return (<div>
         
-        <div style={{position:"absolute",width:825,height:509,left: '353px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
+        <div style={{position:"absolute",width:824,height:509,left: '369px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}>
         
         
-        
-        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
+        <canvas id='stylebarcanvas-base' width={canvasW} height={canvasW} style={{position: 'absolute',width: '443px',height: '443px',left: 279,top: 21,background: '#FFFFFF',
+     }} ref={(ref) => {this.canvasRefbase = ref;}}>
+     </canvas>
+        <canvas id='stylebarcanvas' width={canvasW} height={canvasW} style={{position: 'absolute',width: '443px',height: '443px',left: 279,top: 21,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef2 = ref;}}>
      </canvas>
-     <canvas id='stylebarcanvas2' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
+     <canvas id='stylebarcanvas2' width={canvasW} height={canvasW} style={{position: 'absolute',width: '443px',height: '443px',left: 279,top: 21,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef1 = ref;}}>
      </canvas>
-     <canvas id='stylebarcanvas3' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
+     <canvas id='stylebarcanvas3' width={canvasW} height={canvasW} style={{position: 'absolute',width: '443px',height: '443px',left: 279,top: 21,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef3 = ref;}}>
      </canvas>
-     <canvas id='stylebarcanvas4' width={canvasW} height={canvasW} style={{position: 'absolute',width: '500px',height: '500px',left: 300,top: 4,background: '#FFFFFF',
+     <canvas id='stylebarcanvas4' width={canvasW} height={canvasW} style={{position: 'absolute',width: '443px',height: '443px',left: 279,top: 21,background: '#FFFFFF',
      }} ref={(ref) => {this.canvasRef4 = ref;}}>
      </canvas>
         
@@ -193,7 +218,7 @@ class StyleBar extends Component{
       //PortraitBarList[this.state.scenario1][this.state.scenario2]['pic']
     else{return (<div>
       
-      <div style={{position: 'absolute',width: '825px',height: '509px',left: '353px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
+      <div style={{position: 'absolute',width: '724px',height: '509px',left: '129px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
    }}>
 
    </div><div className='stylebarbar' >
@@ -202,6 +227,52 @@ class StyleBar extends Component{
     </div>)}
     } 
 }
+
+class ToolBar extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      peeps:this.props.peeps,
+      scenario1:this.props.scenario1,
+      scenario2:this.props.scenario2,
+      portrait:this.props.portrait,
+      style:this.props.style,
+      iscanvas:this.props.iscanvas,
+      imageData:0,peepsData:0
+    }
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {peeps:props.peeps,scenario1:props.scenario1,scenario2:props.scenario2,
+      portrait:props.portrait,style:props.style,iscanvas:0};
+  }
+
+
+
+  render(){
+    //this.props.trancanvas(0)
+
+    
+      return (<div>
+        
+        <div style={{position:"absolute",width:473,height:509,left: '891px',top: '244px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)'}}></div>
+        <div className='toolinformation'>
+        <div style={{width:400,height:80,backgroundColor:'white',}}></div>
+          <div style={{width:420,position:'absolute',left:0,top:80}}>做前端开发的同学对 package.json 文件一定不陌生，但我们通常很少去关注它，最熟悉的莫过于几个最基本的属性，如：name，项目名称version，项目版本号dependencies，项目依赖包scripts，npm命令package.json 其实还有很多属性可以配置的，这里就介绍一个 homepage 属性的作用。
+homepage 的作用是设置应用的跟路径，我们的项目打包后是要运行在一个域名之下的，有时候可能是运行在跟域名下，也有可能运行在某个子域名下或或域名的某个目录下，这时候我们就需要让我们的应用知道去哪里加载资源，这时候就需要我们设置一个跟路径，而且有时候我们的资源会部署在 CDN 上，你必须告诉打包工具你的CDN地址是什么。
+比如我们用 create-react-app 开发的 React 应用，以及 Vue CLI 开发的项目，默认是继承了 webpack 的，当不配置 homepage 属性，build 打包之后的文件资源应用路径默认是 / ，如下图当你设置了 homepage 属性后，比如我这里homepage 设置为 github 的 pages 服务地址打包后的资源路径就会加上 homepage 的地址。比如上面图片配置好 homepage 之后我打包一个 React 项目，打包后 index.html 页面的资源路径就是：全文完。做前端开发的同学对 package.json 文件一定不陌生，但我们通常很少去关注它，最熟悉的莫过于几个最基本的属性，如：name，项目名称version，项目版本号dependencies，项目依赖包scripts，npm命令package.json 其实还有很多属性可以配置的，这里就介绍一个 homepage 属性的作用。
+homepage 的作用是设置应用的跟路径，我们的项目打包后是要运行在一个域名之下的，有时候可能是运行在跟域名下，也有可能运行在某个子域名下或或域名的某个目录下，这时候我们就需要让我们的应用知道去哪里加载资源，这时候就需要我们设置一个跟路径，而且有时候我们的资源会部署在 CDN 上，你必须告诉打包工具你的CDN地址是什么。
+比如我们用 create-react-app 开发的 React 应用，以及 Vue CLI 开发的项目，默认是继承了 webpack 的，当不配置 homepage 属性，build 打包之后的文件资源应用路径默认是 / ，如下图当你设置了 homepage 属性后，比如我这里homepage 设置为 github 的 pages 服务地址打包后的资源路径就会加上 homepage 的地址。比如上面图片配置好 homepage 之后我打包一个 React 项目，打包后 index.html 页面的资源路径就是：全文完。</div>
+</div>
+<div style={{position:'absolute',left:890,top:250,width:473,height:80,backgroundColor:'white',}}>
+  <div style={{position:'absolute',left:0,top:20,width:473,height:60,textAlign:'center',backgroundColor:'white',fontSize:24,fontFamily:'Poppins',color:'#4D59BF'}}>
+toolname</div></div>
+</div>)
+      //PortraitBarList[this.state.scenario1][this.state.scenario2]['pic']
+    
+    } 
+}
+
+
 class ProductBar extends Component{
   constructor(props){
     super(props)
@@ -444,7 +515,7 @@ transpeeps(peeps1,peeps2,peeps3,peeps4){
     }
     tick() {
     }
-    xx12(){var a=this.state.peeps1;
+  xx12(){var a=this.state.peeps1;
       var b=this.state.peeps2;
       var s1= {peeps1:b,peeps2:a,peeps3:this.state.peeps3,peeps4:this.state.peeps4}
       this.setState(s1);}
@@ -588,23 +659,39 @@ render(){
             <div className='text6' >Select your product</div>
             <div className='text7' >Change the style</div>
             <div className='page'>
-            <div style={{/* Select a scenario and product */position: 'absolute',width: '360px',height: '71px',left: '670px',top: '188px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
-    }}>Select a style</div>
+            <div style={{/* Select a scenario and product */position: 'absolute',width: '360px',height: '71px',left: '647px',top: '177px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
+    }}>Style suggestion</div>
     <StyleBar peeps={this.state.peeps1} iscanvas={0} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></StyleBar>
+
+    
+
+   
+
     <div onClick={(()=>{this.toProgress(2)})}><div className='backButton1Text'>Back</div><BackButton1></BackButton1></div>
-    <div onClick={(()=>{let data = document.getElementById('stylebarcanvas4').toDataURL();
-    const a_link = document.createElement('a');
+    <div onClick={(()=>{var data = document.getElementById('stylebarcanvas-base').toDataURL();
+    var a_link = document.createElement('a');
     fetch(data)    // 括号里是文件链接
     .then((res) => res.blob())
      .then((blob) => {
           // 将链接地址字符内容转变成blob地址
        a_link.href = URL.createObjectURL(blob);
        //console.log(a_link.href);
-       a_link.download = 'result'; //下载的文件的名字
+       a_link.download = 'avatar'; //下载的文件的名字
        document.body.appendChild(a_link);
        a_link.click();
-   });
- 
+   })
+   var data = document.getElementById('stylebarcanvas4').toDataURL();
+   var a_link = document.createElement('a');
+   fetch(data)    // 括号里是文件链接
+   .then((res) => res.blob())
+    .then((blob) => {
+         // 将链接地址字符内容转变成blob地址
+      a_link.href = URL.createObjectURL(blob);
+      //console.log(a_link.href);
+      a_link.download = 'product'; //下载的文件的名字
+      document.body.appendChild(a_link);
+      a_link.click();
+  });
     
     })}><div className='exportButtonText'>Export</div><NextButton2></NextButton2></div>
             
@@ -633,4 +720,8 @@ render(){
 
   
 }
+
+/* <div style={{position: 'absolute',width: '360px',height: '71px',left: '1008px',top: '177px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
+}}>Tool suggestion</div>
+<ToolBar peeps={this.state.peeps1} iscanvas={0} transtyle={this.transtyle} style={this.state.style} portrait={this.state.portrait} scenario1={this.state.scenario1} scenario2={this.state.scenario2}></ToolBar>*/
 

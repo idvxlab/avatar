@@ -214,7 +214,7 @@ color: #FFFFFF;
     /* Rectangle 61 */
   width: 175px;
   height: 510px;
-  left: 405px;
+  left: 421px;
   top: 380px;
   }
   .stylebarbar::-webkit-scrollbar {
@@ -306,3 +306,39 @@ color: #4D59BF;
 
 
 
+  .toolinformation{
+    position: absolute;
+    overflow-y:scroll;
+    /* Rectangle 61 */
+  width: 470px;
+  height: 500px;
+  left: 922px;
+  top: 250px;
+  }
+  .toolinformation::-webkit-scrollbar {
+    width: 9px;
+    left: 100;
+    
+  }
+  .toolinformation::-webkit-scrollbar-thumb {
+    background-color: rgba(77,89,191,0.33);
+  }
+
+  .toolname{
+
+    font-Family: 'Poppins';
+    font-size: 24;
+  font-weight: 500;
+  line-height: 36;
+  letter-spacing: '0em';
+  text-align: center;
+  position:absolute;
+  left:890;
+  top:250;
+  width:473;
+  
+  height:71;
+  color:'#4D59BF';
+  background-color:'white';
+    }
+  
