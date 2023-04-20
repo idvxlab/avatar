@@ -148,6 +148,27 @@ var test_mode=0
 var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.2,0.0,0.66,.66]
 var peepsp=[.05,0.02,1,1]
+/*bag  cup mobile phone shell pillow tshirt hoody folder notebook key ring mousePad cardholder coaster laptop bottle
+fridge magnet
+sticker postcard
+18 — pencilcase
+19 — badge
+20 — calendar
+21 — plate
+22 — schoolbag
+23 — storage box
+24 — suitcase
+25 — skateboard
+26 — socks
+27 — usb
+28 — umbrella
+29 — earphone shell
+30 — equipment bag
+31 — lunchbox
+32 — cap
+*/
+//var s111={'bag':{'pic':bag},'cup':{'pic':cup},}
+
 var ProductsList={
 'work':{'cup':{'pic':cup},'folder':{'pic':folder},'lunchbox':{'pic':lunchBox},'laptop':{'pic':laptop},'notebook':{'pic':notebook},'usb':{'pic':usb},'mousePad':{'pic':mousePad}},
 'study':{'cardholder':{'pic':cardholder},'folder':{'pic':folderS},'pencilcase':{'pic':pencilcase},
@@ -162,7 +183,6 @@ var ProductsList={
     'lunchbox':{'pic':lunchboxOt},'suitcase':{'pic':suitcaseOt},'tshirt':{'pic':tshirtOt},'umbrella':{'pic':umbrellaOt}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-var allProductList={}
 var ProductsListO={
     'work':{'cup':{'pic':cupO},'folder':{'pic':folderO},'lunchbox':{'pic':lunchBoxO},
     'laptop':{'pic':laptopO},'notebook':{'pic':notebookO},'usb':{'pic':usbO},'mousePad':{'pic':mousePadO}},
@@ -273,5 +293,67 @@ var StyleBarList={
         'umbrella':{'style1':[ {x:0.42,y:0.31,sx:.25,sy:.25,tx:-.25,degree:.63},{x:0.745,y:0.51,sx:.07,sy:.25,tx:.39,degree:-.3}],
                     'style2':[ {x:0.38,y:0.43,sx:.11,sy:.11,tx:-.25,degree:.63},{x:0.82,y:0.65,sx:.03,sy:.11,tx:.39,degree:-.3}]}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
+}
+let allProductList={}
+for (var i in ProductsList){
+        if (i!=0){
+                for (var j in ProductsList[i])
+                //console.log(j)
+                {allProductList[j]={};
+        allProductList[j]['pic']=ProductsList[i][j]['pic']}
+        }
+        
+}
+//let allProductListO={}
+for (var i in ProductsListO){
+        if (i!=0){
+                for (var j in ProductsListO[i])
+                //console.log(j)
+                {//allProductListO[j]={};
+        allProductList[j]['picO']=ProductsListO[i][j]['pic']}
+        }
+} 
+//let allProductListO={}
+for (var i in StyleBarList){
+        if (i!=0){
+                for (var j in StyleBarList[i])
+                //onsole.log(j)
+                {//allProductListO[j]={};
+        allProductList[j]['style']=StyleBarList[i][j]}
+        }
+} 
+// refine schedule
+var schedule_=["bag","cup","mobile phone shell","pillow","tshirt","hoody","folder","notebook","key ring",
+"mousePad","cardholder",'coaster','laptop','bottle','fridge magnet','sticker','postcard','pencilcase','badge','calendar'
+,'plate','schoolbag','storage box','suitcase','skateboard','socks','usb','umbrella','earphone shell','equipment bag','lunchbox','cap']
+console.log(allProductList)
+let refined_allProductList={}
+let refined_Productlist={}
+let refined_ProductlistO={}
+let refined_Stylelist={}
+for (var i_ in schedule_){
+        
+        var i=schedule_[i_]
+        console.log(i_,i)
+        refined_allProductList[i]=allProductList[i]
+        refined_Productlist[i]={}
+        refined_Productlist[i]['pic']=allProductList[i]['pic']
+        refined_ProductlistO[i]={}
+        refined_ProductlistO[i]['pic']=allProductList[i]['picO']
+        refined_Stylelist[i]={}
+        refined_Stylelist[i]=allProductList[i]['style']
+}
+console.log(refined_allProductList)
+console.log(refined_Productlist)
+console.log(refined_ProductlistO)
+console.log(refined_Stylelist)
+for (var i in ProductsList){
+        ProductsList[i]=refined_Productlist
+}
+for (var i in ProductsListO){
+        ProductsListO[i]=refined_ProductlistO
+}
+for (var i in StyleBarList){
+        StyleBarList[i]=refined_Stylelist
 }
 export{allProductList,ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn,canvasW,ProductsListO,test_mode}
