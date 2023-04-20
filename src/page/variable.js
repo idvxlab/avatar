@@ -144,7 +144,7 @@ var canvasW=1500
 var versionn='1'
 //
 //var url='http://202.120.165.128:5000/service/avatar'
-var test_mode=1
+var test_mode=0
 var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.2,0.0,0.66,.66]
 var peepsp=[.05,0.02,1,1]
