@@ -144,7 +144,7 @@ var canvasW=1500
 var versionn='1'
 //
 //var url='http://202.120.165.128:5000/service/avatar'
-var test_mode=0
+var test_mode=1
 var url='https://avatar-api.idvxlab.com:8010/service_avatar/avatar'
 var headp=[0.2,0.0,0.66,.66]
 var peepsp=[.05,0.02,1,1]
@@ -156,13 +156,13 @@ var ProductsList={
     'tshirt':{'pic':tshirt},'bottle':{'pic':bottle},'cap':{'pic':cap}},
 'home':{'coaster':{'pic':coastar},'cup':{'pic':cupH},'earphone shell':{'pic':earphoneShell},
     'fridge magnet':{'pic':fridgeMangnet},'pillow':{'pic':pillow},'plate':{'pic':plate},'storage box':{'pic':storageBox}},
-    'gift':{'badge':{'pic':badge},'key ring':{'pic':keyRing},'mobile phone shell':{'pic':mobilePhoneShell},
+'gift':{'badge':{'pic':badge},'key ring':{'pic':keyRing},'mobile phone shell':{'pic':mobilePhoneShell},
     'pillow':{'pic':pillowG},'postcard':{'pic':postcard},'sticker':{'pic':sticker},'tshirt':{'pic':tshirtG}},
-    'outdoor':{'bag':{'pic':bagOt},'cap':{'pic':capOt},'key ring':{'pic':keyRingOt},
+'outdoor':{'bag':{'pic':bagOt},'cap':{'pic':capOt},'key ring':{'pic':keyRingOt},
     'lunchbox':{'pic':lunchboxOt},'suitcase':{'pic':suitcaseOt},'tshirt':{'pic':tshirtOt},'umbrella':{'pic':umbrellaOt}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-
+var allProductList={}
 var ProductsListO={
     'work':{'cup':{'pic':cupO},'folder':{'pic':folderO},'lunchbox':{'pic':lunchBoxO},
     'laptop':{'pic':laptopO},'notebook':{'pic':notebookO},'usb':{'pic':usbO},'mousePad':{'pic':mousePadO}},
@@ -274,4 +274,4 @@ var StyleBarList={
                     'style2':[ {x:0.38,y:0.43,sx:.11,sy:.11,tx:-.25,degree:.63},{x:0.82,y:0.65,sx:.03,sy:.11,tx:.39,degree:-.3}]}},
 0:{'s1':{'pic':0},'s2':{'pic':0},'s3':{'pic':0},'s4':{'pic':0},'s5':{'pic':0},'s6':{'pic':0}}
 }
-export{ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn,canvasW,ProductsListO,test_mode}
+export{allProductList,ProductsList,StyleBarList,PortraitBarList,svg1,svg2,svg3,svg4,url,headp,peepsp,versionn,canvasW,ProductsListO,test_mode}

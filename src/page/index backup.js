@@ -286,7 +286,6 @@ class ProductBar extends Component{
   render(){
     var s1=this.state.scenario1
     var barlist=[]
-    //var Products=ProductsList[s1]
     var Products=ProductsList[s1]
     var t=0
     var basex=0;var basey=0;
@@ -379,7 +378,7 @@ class PortraitBar extends Component{
     
     var dddiv=barlist.map((item,index)=><ScenarioButton2 key={index} headp={headp} a={item[5]} peepsp={peepsp} head={this.state.peeps} transscenario2={this.props.transportrait} E={0} id={item[0]} l={150}x={item[3]} y={item[4]} peeps={item[1]} style={(item[0]===this.state.portrait)?1:0}></ScenarioButton2>)
     if(this.state.scenario1 && !this.state.scenario2){
-      return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '978px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
+      return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
       
     </div><div  className='protraitBBar' >{dddiv}</div>
@@ -391,7 +390,7 @@ class PortraitBar extends Component{
     </div>)
     }
     else if(this.state.scenario1 && this.state.scenario2 && this.state.portrait){
-      return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '978px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
+      return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
     }}>
       <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:isMul?'multiply':'normal'}}><img src={ProductsListO[this.state.scenario1][this.state.scenario2]['pic']} alt='loading failed' width={350+'px'} height={350+'px'}/></div>
       <div style={{position:'absolute',left:45+'px',top:50+'px',mixBlendMode:isMul?'multiply':'normal'}}>
@@ -401,7 +400,7 @@ class PortraitBar extends Component{
 }}>{this.state.scenario2}</div>
     </div><div  className='protraitBBar' >{dddiv}</div>
     </div>)}
-    return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '978px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
+    return(<div><div style={{position: 'absolute',width: '445px',height: '513px',left: '801px',top: '242px',background: '#FFFFFF',boxShadow: '0px 4px 9px rgba(0, 0, 0, 0.04)',
   }}></div>
     <svg width="288" height="209" transform='translate(882,351)' fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fillRule="evenodd" clipRule="evenodd" d="M58.8535 0.463298L0 94.7914L58.8535 131.512V209H230.854V129.221L287.077 96.7598L231.213 2.67029e-05L230.854 0.207671V0H197.595C185.79 16.3552 166.565 27 144.854 27C123.142 27 103.917 16.3552 92.1124 0H59.1426H58.8535V0.463298Z" fill="#F3F3F3"/>
@@ -611,12 +610,10 @@ render(){
           <div className='text5' >Make your avatar</div>
           <div className='text6' >Select your product</div>
           <div className='text7' >Change the style</div>
-          <div style={{/* Select a scenario and product */position: 'absolute',width: '490px',height: '71px',left: '140px',top: '181px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
-  }}>Select a product</div>
-  <div style={{/* Select a scenario and product */position: 'absolute',width: '287px',height: '48px',left: '614px',top: '181px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
-  }}>Select a scenario</div>
-  <div style={{/* Select a scenario and product */position: 'absolute',width: '490px',height: '71px',left: '1122px',top: '181px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
-  }}>Sample</div>
+          <div style={{/* Select a scenario and product */position: 'absolute',width: '490px',height: '71px',left: '168px',top: '181px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
+  }}>Select a scenario and product</div>
+  <div style={{/* Select a scenario and product */position: 'absolute',width: '287px',height: '48px',left: '1007px',top: '181px',fontFamily: 'Poppins',fontStyle: 'normal',fontWeight: '500',fontSize: '32px',lineHeight: '48px',color: '#595566'
+  }}>Select a portrait</div>
   
           <div className='page'>
             <Scenariobar scenario1={this.state.scenario1} transscenario1={this.transscenario1}></Scenariobar>
